@@ -1,7 +1,4 @@
-/* ================================
-   GLOBAL THEME
-================================== */
-
+/* GLOBAL THEME */
 body {
   margin: 0;
   padding: 0;
@@ -11,32 +8,109 @@ body {
   overflow-x: hidden;
 }
 
-.hero {
-  height: 100vh;
-  width: 100%;
-  background: linear-gradient(145deg, #05070d 0%, #0a0f1a 60%, #0b0f17 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
 }
 
-/* ================================
-   SPINNING LOGO
-================================== */
+/* HEADER */
+.site-header {
+  background: #06080d;
+  border-bottom: 2px solid #0a58ff;
+  padding: 15px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo { width: 45px; }
+
+.brand-name {
+  font-size: 1.5rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-link {
+  color: #75aaff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #fff;
+  border-bottom: 2px solid #0a58ff;
+}
+
+/* MOBILE NAV */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 26px;
+  height: 3px;
+  background: white;
+}
+
+@media (max-width: 900px) {
+
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: #0f1625;
+    flex-direction: column;
+    padding: 15px 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.25s ease;
+  }
+
+  body.nav-open .nav-links {
+    transform: scaleY(1);
+  }
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(145deg, #05070d, #0a0f1a, #0b0f17);
+}
 
 .logo-container {
   width: 180px;
   height: 180px;
-  margin-bottom: 25px;
+  margin: 0 auto 25px auto;
   filter: drop-shadow(0 0 15px #0a58ff90);
 }
 
 .logo-spin {
   width: 100%;
-  height: 100%;
   animation: spin 25s linear infinite;
 }
 
@@ -45,40 +119,29 @@ body {
   to   { transform: rotate(360deg); }
 }
 
-/* ================================
-   TEXT STYLES
-================================== */
-
 .title {
   font-size: 3rem;
-  letter-spacing: 2px;
-  margin: 10px 0;
+  color: #fff;
   text-shadow: 0 0 12px #0a58ff;
-  color: #ffffff;
 }
 
 .subtitle {
-  margin-top: 0;
-  margin-bottom: 40px;
-  font-size: 1.3rem;
+  margin-top: 10px;
   color: #9bb5ff;
+  font-size: 1.3rem;
 }
 
-/* ================================
-   CTA BUTTON
-================================== */
-
+/* BUTTON */
 .btn-primary {
   display: inline-block;
-  padding: 14px 28px;
+  margin-top: 30px;
+  padding: 14px 26px;
   border-radius: 10px;
   background: linear-gradient(180deg, #0a58ff, #003fba);
-  color: white;
+  color: #fff;
   font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
   text-decoration: none;
-  box-shadow: 0 0 18px #0a58ff90;
+  box-shadow: 0 0 20px #0a58ff90;
   transition: 0.3s ease;
 }
 
@@ -87,19 +150,10 @@ body {
   transform: translateY(-3px);
 }
 
-/* ================================
-   RESPONSIVE
-================================== */
-
-@media (max-width: 600px) {
-  .title {
-    font-size: 2.4rem;
-  }
-  .subtitle {
-    font-size: 1.1rem;
-  }
-  .logo-container {
-    width: 140px;
-    height: 140px;
-  }
+/* FOOTER */
+.site-footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  color: #9bb5ff;
 }
