@@ -1,6 +1,9 @@
+// Mobile menu toggle
 const navToggle = document.getElementById("navToggle");
 const body = document.body;
 
-navToggle.addEventListener("click", () => {
-  body.classList.toggle("nav-open");
-});
+if (navToggle) {
+  navToggle.addEventListener("click", () => {
+    body.classList.toggle("nav-open");
+  });
+}
