@@ -1,1 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Vehicle Search — Make / Model / Variant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Your site CSS (the file you shared) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Supabase JS (UMD build exposes global `supabase`) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.43.4/dist/umd/supabase.js"></script>
+</head>
+
+<body>
+  <!-- ====== Header / Nav (branding) ====== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="Logo" class="logo" />
+        <span class="brand-name">Your Brand</span>
+      </a>
+
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="#search">Search</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== Hero (branding background & motif) ====== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1 class="title">Find the Right Vehicle Fast</h1>
+      <p class="subtitle">Search across <strong>Make</strong>, <strong>Model</strong>, and <strong>Variant</strong> using our live database.</p>
+      <div class="hero-ctas">
+        <a href="#search" class="btn-primary">Start Searching</a>
+        <a href="index.html" class="btn-secondary">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Search Section ====== -->
+  <main id="search" class="container" style="padding:40px 0;">
+    <!-- CONFIG: Edit these -->
+    <script>
+      const SUPABASE_URL = "https://YOUR-PROJECT-ID.supabase.co";
+      const SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
+      const TABLE_NAME = "vehicles"; // e.g., "vehicles"
+
+      // CSV columns (typo preserved to match your data)
+      const COLUMN_MAP = {
+        make: "Make",
+        model: "Model",
+        variant: "Deritaive"
+      };
+
+      // Optional default sort
+      const DEFAULT_SORT = { column: COLUMN_MAP.make, ascending: true };
+    </script>
+
+    <!-- Search Controls -->
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px;">
+      <div class="field">
+        <label for="make">Make</label>
+        <input id="make" type="search" placeholder="e.g. BMW" />
+      </div>
+      <div class="field">
+        <label for="model">Model</label>
+        <input id="model" type="search" placeholder="e.g. X5" />
+      </div>
+      <div class="field">
+        <label for="variant">Variant</label>
+        <input id="variant" type="search" placeholder="e.g. xDrive 35 i" />
+      </div>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+      <button id="clearBtn" class="btn-secondary">Clear</button>
+
+      <div style="margin-left:auto; display:flex; align-items:center; gap:10px;">
+        <label style="display:flex; align-items:center; gap:8px;">
+          <span>Page size:</span>
+          <select id="pageSize" class="btn-secondary" style="padding:6px 10px;">
+            <option>10</option>
+            <option selected>25</option>
+            <option>50</option>
+          </select>
+        </label>
+        <div id="status" style="color:var(--muted);"></div>
+      </div>
+    </div>
+
+    <!-- Results Table -->
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:14px;">
+        <thead>
+          <tr style="background:#181A1E; color:#cfd6e6;">
+            <th style="text-align:left; padding:12px; border-bottom:1px solid var(--border);">Make</th>
+            <th style="text-align:left; padding:12px; border-bottom:1px solid var(--border);">Model</th>
+            <th style="text-align:left; padding:12px; border-bottom:1px solid var(--border);">Variant</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- Pager -->
+    <div style="display:flex; align-items:center; gap:12px; margin-top:16px;">
+      <button id="prev" class="btn-secondary">Prev</button>
+      <button id="next" class="btn-secondary">Next</button>
+      <div id="pagerInfo" style="margin-left:auto; color:var(--muted);"></div>
+    </div>
+  </main>
+
+  <!-- ====== Contact (optional anchor target for your nav) ====== -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Demo form');">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" />
+        </div>
+        <div class="field field--full">
+          <label for="msg">Message</label>
+          <textarea id="msg" rows="4" placeholder="How can we help?"></textarea>
+        </div>
+        <div class="field field--full">
+          <button class="btn-primary" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ====== Footer ====== -->
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> Your Brand. All rights reserved.</div>
+  </footer>
+
+  <!-- ====== JS: Your hamburger + smooth-scroll, then search logic ====== -->
+  <script>
+    // ----------------- YOUR NAV/UX SCRIPT (as provided) -----------------
+    // Hamburger toggle
+    const navToggle = document.getElementById("navToggle");
+    const primaryNav = document.getElementById("primary-nav");
+
+    if (navToggle && primaryNav) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = primaryNav.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", isOpen);
+        document.body.classList.toggle("no-scroll", isOpen);
+      });
+
+      // Close on ESC
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && primaryNav.classList.contains("open")) {
+          primaryNav.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+          document.body.classList.remove("no-scroll");
+        }
+      });
+
+      // Close after clicking any link
+      primaryNav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          primaryNav.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+          document.body.classList.remove("no-scroll");
+        });
+      });
+    }
+
+    // Smooth scrolling for same-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", e => {
+        const target = document.querySelector(a.getAttribute("href"));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ----------------- SUPABASE SEARCH LOGIC -----------------
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const $ = (id) => document.getElementById(id);
+    const makeEl = $("make");
+    const modelEl = $("model");
+    const variantEl = $("variant");
+    const clearBtn = $("clearBtn");
+    const prevBtn = $("prev");
+    const nextBtn = $("next");
+    const pagerInfo = $("pagerInfo");
+    const pageSizeSel = $("pageSize");
+    const tbody = $("tbody");
+    const status = $("status");
+
+    let filters = { make: "", model: "", variant: "" };
+    let page = 1;
+    let pageSize = parseInt(pageSizeSel.value, 10);
+    let total = 0;
+
+    let debounceTimer;
+    const debounce = (fn, wait = 250) => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(fn, wait);
+    };
+
+    const like = (v) => (v && v.trim() ? `%${v.trim()}%` : null);
+
+    function renderRows(rows) {
+      tbody.innerHTML = "";
+      rows.forEach(r => {
+        const tr = document.createElement("tr");
+
+        const tdMake = document.createElement("td");
+        const tdModel = document.createElement("td");
+        const tdVariant = document.createElement("td");
+
+        tdMake.style.padding = tdModel.style.padding = tdVariant.style.padding = "12px";
+        tdMake.style.borderBottom = tdModel.style.borderBottom = tdVariant.style.borderBottom = "1px solid var(--border)";
+
+        tdMake.textContent    = r[COLUMN_MAP.make]    ?? "";
+        tdModel.textContent   = r[COLUMN_MAP.model]   ?? "";
+        tdVariant.textContent = r[COLUMN_MAP.variant] ?? "";
+
+        tr.append(tdMake, tdModel, tdVariant);
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function fetchData() {
+      status.textContent = "Loading…";
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+
+      const from = (page - 1) * pageSize;
+      const to = from + pageSize - 1;
+
+      let query = supabaseClient
+        .from(TABLE_NAME)
+        .select(`${COLUMN_MAP.make},${COLUMN_MAP.model},${COLUMN_MAP.variant}`, { count: "exact" })
+        .range(from, to);
+
+      if (DEFAULT_SORT?.column) {
+        query = query.order(DEFAULT_SORT.column, { ascending: !!DEFAULT_SORT.ascending, nullsFirst: false });
+      }
+
+      // OR-filter across Make / Model / Deritaive
+      const makeLike = like(filters.make);
+      const modelLike = like(filters.model);
+      const variantLike = like(filters.variant);
+
+      const ors = [];
+      if (makeLike)    ors.push(`${COLUMN_MAP.make}.ilike.${makeLike}`);
+      if (modelLike)   ors.push(`${COLUMN_MAP.model}.ilike.${modelLike}`);
+      if (variantLike) ors.push(`${COLUMN_MAP.variant}.ilike.${variantLike}`);
+
+      if (ors.length) query = query.or(ors.join(","));
+
+      const { data, error, count } = await query;
+
+      if (error) {
+        status.textContent = "Error: " + error.message;
+        tbody.innerHTML = "";
+        pagerInfo.textContent = "";
+        return;
+      }
+
+      total = count || 0;
+      renderRows(data || []);
+
+      const lastPage = Math.max(1, Math.ceil((total || 1) / pageSize));
+      prevBtn.disabled = page <= 1;
+      nextBtn.disabled = page >= lastPage;
+
+      pagerInfo.textContent = total
+        ? `Page ${page} of ${lastPage} • ${total} total`
+        : `Page ${page}`;
+
+      status.textContent = (data && data.length) ? "" : "No results";
+    }
+
+    function onInputChanged() {
+      debounce(() => {
+        page = 1;
+        filters = {
+          make: makeEl.value,
+          model: modelEl.value,
+          variant: variantEl.value
+        };
+        fetchData();
+      }, 250);
+    }
+
+    [makeEl, modelEl, variantEl].forEach(inp => inp.addEventListener("input", onInputChanged));
+
+    clearBtn.addEventListener("click", () => {
+      makeEl.value = "";
+      modelEl.value = "";
+      variantEl.value = "";
+      filters = { make: "", model: "", variant: "" };
+      page = 1;
+      fetchData();
+    });
+
+    pageSizeSel.addEventListener("change", () => {
+      pageSize = parseInt(pageSizeSel.value, 10);
+      page = 1;
+      fetchData();
+    });
+
+    prevBtn.addEventListener("click", () => { if (page > 1) { page--; fetchData(); } });
+    nextBtn.addEventListener("click", () => { page++; fetchData(); });
+
+    // Initial load
+    fetchData();
+  </script>
+</body>
+</html>
