@@ -1,62 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OmniAssist – Intelligent Automation</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <meta name="theme-color" content="#0A84FF" />
+</head>
+
 <body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="OmniAssist logo" class="logo" />
+        <span class="brand-name">OmniAssist</span>
+      </a>
 
-<header class="site-header">
-  <div class="container nav-container">
-    <a href="index.html" class="brand">
-      <img src="logo.png" class="logo" alt="OmniAssist Logo">
-      <span class="brand-name">OmniAssist</span>
-    </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open Menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
 
-    <button class="nav-toggle" id="navToggle" aria-expanded="false">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
+      <nav class="nav-links" id="primary-nav" role="navigation">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="#contact" class="nav-link btn-nav">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <nav class="nav-links" id="primary-nav">
-      <a href="#features" class="nav-link">Features</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-  </div>
-</header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="vehicle-wrapper" aria-hidden="true">
+      <!-- Vehicle 1 (front layer) -->
+      <svg class="vehicle v1" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet">
+        <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- simple car outline -->
+          <path d="M70 120 L120 120 L170 80 L300 80 L340 120 L510 120 Q530 120 530 140 L70 140 Q60 140 60 130 Q60 120 70 120 Z"/>
+          <!-- windows -->
+          <path d="M190 95 L280 95 L300 120 L160 120 Z"/>
+          <!-- wheels -->
+          <circle cx="160" cy="140" r="18" />
+          <circle cx="420" cy="140" r="18" />
+        </g>
+      </svg>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container hero-inner">
-    <h1>Automate Work. Accelerate Results.</h1>
-    <p class="subtitle">OmniAssist helps you streamline workflows and reduce manual effort using intelligent automation.</p>
-    <a href="#features" class="btn-primary">See Features</a>
-  </div>
-</section>
+      <!-- Vehicle 2 (back layer, slower, fainter, slightly bigger) -->
+      <svg class="vehicle v2" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet">
+        <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M70 120 L120 120 L170 80 L300 80 L340 120 L510 120 Q530 120 530 140 L70 140 Q60 140 60 130 Q60 120 70 120 Z"/>
+          <path d="M190 95 L280 95 L300 120 L160 120 Z"/>
+          <circle cx="160" cy="140" r="18" />
+          <circle cx="420" cy="140" r="18" />
+        </g>
+      </svg>
+    </div>
 
-<!-- FEATURES -->
-<section class="features" id="features">
-  <div class="container">
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="icon">🤖</div>
-        <h3>AI Orchestration</h3>
-        <p>Combine systems and models into smooth, automated flows.</p>
-      </div>
+    <div class="container hero-inner">
+      <h1>Automate Work. Accelerate Results.</h1>
+      <p class="subtitle">Streamline workflows and reduce manual effort with intelligent automation that fits your stack.</p>
+      <a href="#features" class="btn-primary">See Features</a>
+    </div>
+  </section>
 
-      <div class="feature-card">
-        <div class="icon">🔗</div>
-        <h3>Integrations</h3>
-        <p>Connect CRMs, ERPs, support tools, and databases.</p>
-      </div>
+  <!-- FEATURES -->
+  <section class="features" id="features" aria-label="Key features">
+    <div class="container">
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="icon">🤖</div>
+          <h3>AI Orchestration</h3>
+          <p>Standardize prompts, apply guardrails, and route to the best model.</p>
+        </article>
 
-      <div class="feature-card">
-        <div class="icon">📈</div>
-        <h3>Observability</h3>
-        <p>Monitor runs, errors, and performance in one place.</p>
+        <article class="feature-card">
+          <div class="icon">🔗</div>
+          <h3>Integrations</h3>
+          <p>Connect CRMs, ERPs, support tools, and warehouses—without brittle scripts.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">📈</div>
+          <h3>Observability</h3>
+          <p>Trace runs, inspect I/O, and govern performance across automations.</p>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 OmniAssist</p>
-  </div>
-</footer>
+  <!-- CONTACT (minimal) -->
+  <section id="contact" class="contact" aria-label="Contact">
+    <div class="container">
+      <h2>Talk to our team</h2>
+      <form class="contact-form" action="#" method="post">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" required />
+        </div>
+        <div class="field">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" placeholder="Company name" />
+        </div>
+        <div class="field field--full">
+          <label for="message">What would you like to automate?</label>
+          <textarea id="message" name="message" rows="4" placeholder="Share your goals or current workflow."></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 OmniAssist</p>
+    </div>
+  </footer>
 </body>
+</html>
