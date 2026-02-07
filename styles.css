@@ -1,103 +1,235 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OmniAssist – Intelligent Automation</title>
-  <meta name="theme-color" content="#0A84FF" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
-</head>
-<body>
+/* ====== Design Tokens ====== */
+:root{
+  --bg:#0A0A0B;             /* main black background */
+  --surface:#101114;        /* dark section background */
+  --text:#E6EAF2;           /* off‑white text */
+  --muted:#AAB2C5;          /* grey text */
+  --primary:#0A84FF;        /* blue */
+  --primary-600:#0764C7;    /* darker blue */
+  --border:rgba(255,255,255,0.12);
+  --glass:rgba(255,255,255,0.06);
+  --radius:12px;
+  --maxw:1100px;
+}
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="index.html" class="brand">
-        <img src="logo.png" alt="OmniAssist Logo" class="logo">
-        <span class="brand-name">OmniAssist</span>
-      </a>
+*{ box-sizing:border-box; }
+html, body{
+  margin:0; padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+.container{ width:min(90%, var(--maxw)); margin:0 auto; }
 
-      <button class="nav-toggle" id="navToggle" aria-label="Open Menu" aria-expanded="false" aria-controls="primary-nav">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
+/* ===== Header ===== */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:blur(10px);
+  background:#0A0A0BD0;
+  border-bottom:1px solid var(--border);
+}
 
-      <nav class="nav-links" id="primary-nav" role="navigation">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
-    </div>
-  </header>
+.nav-container{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 0;
+}
 
-  <!-- HERO -->
-  <section class="hero" aria-label="Intro">
-    <div class="container hero-inner">
-      <h1 class="title">Automate Work. Accelerate Results.</h1>
-      <p class="subtitle">
-        Streamline workflows and reduce manual effort with intelligent automation that fits your stack.
-      </p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Get Started</a>
-        <a href="#features" class="btn-secondary">See Features</a>
-      </div>
-    </div>
-  </section>
+.brand{
+  display:flex; align-items:center; gap:12px;
+}
+.logo{
+  width:48px;  /* bigger logo */
+  height:48px;
+}
+.brand-name{
+  font-weight:700;
+  font-size:1.2rem;
+}
 
-  <!-- FEATURES -->
-  <section class="features" id="features" aria-label="Key features">
-    <div class="container">
-      <div class="feature-grid">
-        <article class="feature-card">
-          <div class="icon" aria-hidden="true">🤖</div>
-          <h3>AI Orchestration</h3>
-          <p>Consistent prompts, guardrails, and dynamic routing.</p>
-        </article>
-        <article class="feature-card">
-          <div class="icon" aria-hidden="true">🔗</div>
-          <h3>Integrations</h3>
-          <p>Connect CRMs, ERPs, support tools, and more.</p>
-        </article>
-        <article class="feature-card">
-          <div class="icon" aria-hidden="true">📈</div>
-          <h3>Observability</h3>
-          <p>Trace every run with full transparency and control.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+.nav-toggle{
+  display:block;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+.nav-toggle .bar{
+  width:26px;
+  height:2px;
+  background:white;
+  border-radius:2px;
+  margin:5px 0;
+}
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact" aria-label="Contact">
-    <div class="container">
-      <h2>Talk to our team</h2>
-      <form class="contact-form">
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your name" required />
-        </div>
-        <div class="field">
-          <label for="email">Work email</label>
-          <input id="email" type="email" placeholder="you@company.com" required />
-        </div>
-        <div class="field">
-          <label for="company">Company</label>
-          <input id="company" type="text" placeholder="Company name" />
-        </div>
-        <div class="field field--full">
-          <label for="message">Your Message</label>
-          <textarea id="message" rows="4" placeholder="Tell us your automation needs"></textarea>
-        </div>
-        <button class="btn-primary" type="submit">Send</button>
-      </form>
-    </div>
-  </section>
+/* NAV drawer default closed */
+.nav-links{
+  position:absolute;
+  top:60px;
+  left:16px; right:16px;
+  display:none;
+  flex-direction:column;
+  gap:12px;
+  background:#111216;       /* dark menu */
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:12px;
+}
+.nav-links.open{ display:flex; }
+.nav-link{
+  color:var(--muted);
+  padding:8px 10px;
+}
+.nav-link:hover{
+  color:white;
+  background:var(--glass);
+}
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 OmniAssist</p>
-    </div>
-  </footer>
-</body>
-</html>
+/* Desktop full‑menu */
+@media (min-width: 1024px){
+  .nav-links{
+    position:static;
+    display:flex;
+    flex-direction:row;
+    background:transparent;
+    border:none;
+    padding:0;
+  }
+}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:100px 0 70px;
+
+  /* Black + Blue gradient restored */
+  background:
+    radial-gradient(700px 350px at 20% -10%, rgba(10,132,255,0.25), transparent 60%),
+    radial-gradient(600px 300px at 80% 10%, rgba(83,179,255,0.20), transparent 60%),
+    linear-gradient(to bottom, #0B0D12, #0A0A0B 50%);
+}
+
+/* Logo motif animation */
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:url("logo.png");
+  background-size:150px auto;
+  background-repeat:repeat;
+  background-position:0 40%;
+  opacity:0.04;             /* very subtle */
+  animation:logo-drift 32s linear infinite;
+  z-index:0;
+}
+@keyframes logo-drift{
+  0%{ background-position:0 40%; }
+  100%{ background-position:600px 40%; }
+}
+
+/* Hero content */
+.hero-inner{
+  position:relative;
+  z-index:1;
+  text-align:center;
+}
+
+.title{
+  font-size:clamp(34px,5vw,56px);
+  margin:0 0 10px;
+}
+.subtitle{
+  max-width:680px;
+  margin:0 auto 20px;
+  color:var(--muted);
+}
+
+/* CTA */
+.hero-ctas{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+}
+.btn-primary, .btn-secondary{
+  padding:12px 18px;
+  border-radius:var(--radius);
+  transition:0.2s;
+}
+.btn-primary{
+  background:var(--primary);
+  color:white;
+}
+.btn-primary:hover{
+  background:var(--primary-600);
+}
+
+/* ===== FEATURES ===== */
+.features{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:60px 0;
+}
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.feature-card{
+  background:#181A1E;
+  border:1px solid var(--border);
+  padding:20px;
+  border-radius:var(--radius);
+  text-align:center;
+}
+.feature-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,0.2);
+}
+.feature-card p{
+  color:var(--muted);
+}
+
+/* ===== CONTACT ===== */
+.contact{
+  padding:60px 0;
+  border-top:1px solid var(--border);
+}
+.contact-form{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.field--full{ grid-column:1/-1; }
+
+input, textarea{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  color:white;
+  padding:12px;
+  border-radius:10px;
+}
+input:focus, textarea:focus{
+  border-color:var(--primary);
+}
+
+/* ===== FOOTER ===== */
+.site-footer{
+  padding:24px 0;
+  border-top:1px solid var(--border);
+  text-align:center;
+  color:var(--muted);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:820px){
+  .feature-grid{ grid-template-columns:1fr; }
+  .contact-form{ grid-template-columns:1fr; }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero::before{ animation:none; }
+}
