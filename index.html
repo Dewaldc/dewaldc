@@ -4,53 +4,57 @@
   <meta charset="utf-8" />
   <title>Vehicle Search — Make / Model / Variant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- (Optional) Quick styling -->
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Supabase JS (UMD build exposes global `supabase`) -->
+
+  <!-- Supabase JS (UMD build = global `supabase`) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.43.4/dist/umd/supabase.js"></script>
 </head>
+
 <body class="min-h-screen bg-gray-50 text-gray-900">
   <div class="max-w-3xl mx-auto p-6">
+
     <h1 class="text-2xl font-semibold mb-2">Search Vehicles</h1>
     <p class="text-sm text-gray-600 mb-6">
-      Filters by <strong>Make</strong>, <strong>Model</strong>, and <strong>Variant</strong>
-      (case-insensitive <code>ilike</code>, combined with <strong>OR</strong>).
+      Search across <strong>Make</strong>, <strong>Model</strong>, and <strong>Variant</strong> (OR search).
     </p>
 
-    <!-- === Config: EDIT THESE === -->
+    <!-- === CONFIG (EDIT URL + KEY + TABLE NAME) === -->
     <script>
-      // 1) Your Supabase project details
       const SUPABASE_URL = "https://YOUR-PROJECT-ID.supabase.co";
       const SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
 
-      // 2) Your table name
-      const TABLE_NAME = "your_table_name"; // e.g. "vehicles"
+      const TABLE_NAME = "vehicles"; // <-- your table name here
 
-      // 3) Map the UI fields to your actual column names in Supabase.
-      //    If your import created Title-Case columns or a typo ("Deritaive"),
-      //    set those exact names here.
+      // COLUMN NAMES FROM CSV:
       const COLUMN_MAP = {
-        make:   "make",      // or "Make"
-        model:  "model",     // or "Model"
-        variant:"variant"    // or "Deritaive" / "Derivative"
+        make: "Make",
+        model: "Model",
+        variant: "Deritaive"  // (typo included intentionally to match your CSV)
       };
 
-      // Optional: default sort for stable paging
       const DEFAULT_SORT = { column: COLUMN_MAP.make, ascending: true };
     </script>
 
-    <!-- Filters -->
+    <!-- SEARCH FILTERS -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
       <input id="make" type="search" placeholder="Make (e.g. BMW)"
-             class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+             class="border border-gray-300 rounded-md px-3 py-2" />
+
       <input id="model" type="search" placeholder="Model (e.g. X5)"
-             class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+             class="border border-gray-300 rounded-md px-3 py-2" />
+
       <input id="variant" type="search" placeholder="Variant (e.g. xDrive 35 i)"
-             class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+             class="border border-gray-300 rounded-md px-3 py-2" />
     </div>
 
     <div class="flex items-center gap-2 mb-4">
-      <button id="clearBtn" class="px-3 py-2 rounded-md border bg-white hover:bg-gray-100">Clear</button>
+      <button id="clearBtn"
+              class="px-3 py-2 rounded-md border bg-white hover:bg-gray-100">
+        Clear
+      </button>
+
       <div class="ml-auto flex items-center gap-3 text-sm text-gray-600">
         <label class="flex items-center gap-2">
           <span>Page size:</span>
@@ -60,12 +64,13 @@
             <option>50</option>
           </select>
         </label>
+
         <div id="status"></div>
       </div>
     </div>
 
-    <!-- Results -->
-    <div id="resultsContainer" class="bg-white border rounded-lg shadow-sm overflow-x-auto">
+    <!-- RESULTS TABLE -->
+    <div class="bg-white border rounded-lg shadow-sm overflow-x-auto">
       <table class="min-w-full text-sm">
         <thead class="bg-gray-50 text-gray-700">
           <tr>
@@ -78,7 +83,7 @@
       </table>
     </div>
 
-    <!-- Pager -->
+    <!-- PAGER -->
     <div class="flex items-center gap-3 mt-4">
       <button id="prev" class="px-3 py-2 rounded-md border bg-white disabled:opacity-50">Prev</button>
       <button id="next" class="px-3 py-2 rounded-md border bg-white disabled:opacity-50">Next</button>
@@ -86,11 +91,10 @@
     </div>
   </div>
 
+  <!-- MAIN SCRIPT -->
   <script>
-    // ---- Setup (UMD global is `supabase`, not `supabasejs`)
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // Elements
     const el = (id) => document.getElementById(id);
     const makeEl = el("make");
     const modelEl = el("model");
@@ -103,17 +107,15 @@
     const tbody = el("tbody");
     const status = el("status");
 
-    // State
     let filters = { make: "", model: "", variant: "" };
     let page = 1;
     let pageSize = parseInt(pageSizeSel.value, 10);
     let total = null;
 
-    // Debounce helper
-    let timer;
+    let debounceTimer;
     const debounce = (fn, wait = 250) => {
-      clearTimeout(timer);
-      timer = setTimeout(fn, wait);
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(fn, wait);
     };
 
     const like = (v) => (v && v.trim() ? `%${v.trim()}%` : null);
@@ -122,15 +124,16 @@
       tbody.innerHTML = "";
       rows.forEach(r => {
         const tr = document.createElement("tr");
+
         const tdMake = document.createElement("td");
         const tdModel = document.createElement("td");
         const tdVariant = document.createElement("td");
+
         tdMake.className = tdModel.className = tdVariant.className = "py-2 px-3";
 
-        // Use mapped keys; fall back to common alternatives
-        tdMake.textContent    = r[COLUMN_MAP.make]    ?? r.make    ?? r.Make    ?? "";
-        tdModel.textContent   = r[COLUMN_MAP.model]   ?? r.model   ?? r.Model   ?? "";
-        tdVariant.textContent = r[COLUMN_MAP.variant] ?? r.variant ?? r.Variant ?? r.Deritaive ?? "";
+        tdMake.textContent    = r[COLUMN_MAP.make]    ?? "";
+        tdModel.textContent   = r[COLUMN_MAP.model]   ?? "";
+        tdVariant.textContent = r[COLUMN_MAP.variant] ?? "";
 
         tr.append(tdMake, tdModel, tdVariant);
         tbody.appendChild(tr);
@@ -145,18 +148,13 @@
       const from = (page - 1) * pageSize;
       const to = from + pageSize - 1;
 
-      // Select only what we display
       let query = supabaseClient
         .from(TABLE_NAME)
         .select(`${COLUMN_MAP.make},${COLUMN_MAP.model},${COLUMN_MAP.variant}`, { count: "exact" })
-        .range(from, to);
+        .range(from, to)
+        .order(DEFAULT_SORT.column, { ascending: DEFAULT_SORT.ascending });
 
-      // Stable sort for pagination
-      if (DEFAULT_SORT?.column) {
-        query = query.order(DEFAULT_SORT.column, { ascending: !!DEFAULT_SORT.ascending, nullsFirst: false });
-      }
-
-      // -------- OR-style filter across make/model/variant ----------
+      // OR filter
       const makeLike = like(filters.make);
       const modelLike = like(filters.model);
       const variantLike = like(filters.variant);
@@ -166,34 +164,25 @@
       if (modelLike)   ors.push(`${COLUMN_MAP.model}.ilike.${modelLike}`);
       if (variantLike) ors.push(`${COLUMN_MAP.variant}.ilike.${variantLike}`);
 
-      if (ors.length) {
-        query = query.or(ors.join(","));
-      }
-      // ------------------------------------------------------------
+      if (ors.length) query = query.or(ors.join(","));
 
       const { data, error, count } = await query;
 
       if (error) {
         status.textContent = "Error: " + error.message;
         tbody.innerHTML = "";
-        pagerInfo.textContent = "";
         return;
       }
 
-      total = count ?? null;
-      renderRows(data || []);
+      total = count;
+      renderRows(data);
 
-      // Pager state
-      const lastPage = total ? Math.max(1, Math.ceil(total / pageSize))
-                             : (data.length < pageSize ? page : page + 1);
+      const lastPage = Math.ceil(total / pageSize);
       prevBtn.disabled = page <= 1;
-      nextBtn.disabled = total ? page >= lastPage : (data.length < pageSize);
+      nextBtn.disabled = page >= lastPage;
 
-      pagerInfo.textContent = total
-        ? `Page ${page} of ${lastPage} • ${total} total`
-        : `Page ${page}`;
-
-      status.textContent = (data && data.length) ? "" : "No results";
+      pagerInfo.textContent = `Page ${page} of ${lastPage}`;
+      status.textContent = data.length ? "" : "No results";
     }
 
     function onInputChanged() {
@@ -208,8 +197,10 @@
       }, 250);
     }
 
-    // Events
-    [makeEl, modelEl, variantEl].forEach(inp => inp.addEventListener("input", onInputChanged));
+    makeEl.addEventListener("input", onInputChanged);
+    modelEl.addEventListener("input", onInputChanged);
+    variantEl.addEventListener("input", onInputChanged);
+
     clearBtn.addEventListener("click", () => {
       makeEl.value = "";
       modelEl.value = "";
@@ -218,16 +209,18 @@
       page = 1;
       fetchData();
     });
+
     pageSizeSel.addEventListener("change", () => {
       pageSize = parseInt(pageSizeSel.value, 10);
       page = 1;
       fetchData();
     });
+
     prevBtn.addEventListener("click", () => { if (page > 1) { page--; fetchData(); } });
     nextBtn.addEventListener("click", () => { page++; fetchData(); });
 
-    // Initial load
     fetchData();
   </script>
+
 </body>
 </html>
