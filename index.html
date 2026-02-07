@@ -1,133 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <title>Vehicle Search — Make / Model / Variant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OmniAssist – Intelligent Automation</title>
-  <meta name="theme-color" content="#0A84FF" />
-
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
+  <!-- (Optional) Quick styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS (UMD build exposes global `supabase`) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.43.4/dist/umd/supabase.js"></script>
 </head>
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto p-6">
+    <h1 class="text-2xl font-semibold mb-2">Search Vehicles</h1>
+    <p class="text-sm text-gray-600 mb-6">
+      Filters by <strong>Make</strong>, <strong>Model</strong>, and <strong>Variant</strong>
+      (case-insensitive <code>ilike</code>, combined with <strong>OR</strong>).
+    </p>
 
-<body>
+    <!-- === Config: EDIT THESE === -->
+    <script>
+      // 1) Your Supabase project details
+      const SUPABASE_URL = "https://YOUR-PROJECT-ID.supabase.co";
+      const SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container nav-container">
+      // 2) Your table name
+      const TABLE_NAME = "your_table_name"; // e.g. "vehicles"
 
-      <!-- Brand + Logo -->
-      <a href="index.html" class="brand">
-        <img src="logo.png" alt="OmniAssist Logo" class="logo">
-        <span class="brand-name">OmniAssist</span>
-      </a>
+      // 3) Map the UI fields to your actual column names in Supabase.
+      //    If your import created Title-Case columns or a typo ("Deritaive"),
+      //    set those exact names here.
+      const COLUMN_MAP = {
+        make:   "make",      // or "Make"
+        model:  "model",     // or "Model"
+        variant:"variant"    // or "Deritaive" / "Derivative"
+      };
 
-      <!-- Hamburger Menu -->
-      <button class="nav-toggle" id="navToggle"
-        aria-label="Open Menu" aria-expanded="false"
-        aria-controls="primary-nav">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+      // Optional: default sort for stable paging
+      const DEFAULT_SORT = { column: COLUMN_MAP.make, ascending: true };
+    </script>
 
-      <!-- Navigation Drawer -->
-      <nav class="nav-links" id="primary-nav" role="navigation">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
-
+    <!-- Filters -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+      <input id="make" type="search" placeholder="Make (e.g. BMW)"
+             class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+      <input id="model" type="search" placeholder="Model (e.g. X5)"
+             class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
+      <input id="variant" type="search" placeholder="Variant (e.g. xDrive 35 i)"
+             class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:border-blue-400" />
     </div>
-  </header>
 
-
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1 class="title">Automate Work. Accelerate Results.</h1>
-      <p class="subtitle">
-        Streamline workflows and reduce manual effort with intelligent automation that fits your stack.
-      </p>
-
-      <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Get Started</a>
-        <a href="#features" class="btn-secondary">See Features</a>
+    <div class="flex items-center gap-2 mb-4">
+      <button id="clearBtn" class="px-3 py-2 rounded-md border bg-white hover:bg-gray-100">Clear</button>
+      <div class="ml-auto flex items-center gap-3 text-sm text-gray-600">
+        <label class="flex items-center gap-2">
+          <span>Page size:</span>
+          <select id="pageSize" class="border rounded px-2 py-1">
+            <option>10</option>
+            <option selected>25</option>
+            <option>50</option>
+          </select>
+        </label>
+        <div id="status"></div>
       </div>
     </div>
-  </section>
 
-
-
-  <!-- FEATURES -->
-  <section class="features" id="features">
-    <div class="container">
-      <div class="feature-grid">
-
-        <div class="feature-card">
-          <div class="icon">🤖</div>
-          <h3>AI Orchestration</h3>
-          <p>Consistent prompts, guardrails, and dynamic routing.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="icon">🔗</div>
-          <h3>Integrations</h3>
-          <p>Connect CRMs, ERPs, support tools, and more.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="icon">📈</div>
-          <h3>Observability</h3>
-          <p>Trace every automation run with full visibility.</p>
-        </div>
-
-      </div>
+    <!-- Results -->
+    <div id="resultsContainer" class="bg-white border rounded-lg shadow-sm overflow-x-auto">
+      <table class="min-w-full text-sm">
+        <thead class="bg-gray-50 text-gray-700">
+          <tr>
+            <th class="py-2 px-3 text-left font-medium">Make</th>
+            <th class="py-2 px-3 text-left font-medium">Model</th>
+            <th class="py-2 px-3 text-left font-medium">Variant</th>
+          </tr>
+        </thead>
+        <tbody id="tbody" class="divide-y"></tbody>
+      </table>
     </div>
-  </section>
 
-
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Talk to our team</h2>
-
-      <form class="contact-form">
-        <div class="field">
-          <label>Name</label>
-          <input type="text" placeholder="Your name" required />
-        </div>
-
-        <div class="field">
-          <label>Email</label>
-          <input type="email" placeholder="you@company.com" required />
-        </div>
-
-        <div class="field">
-          <label>Company</label>
-          <input type="text" placeholder="Company name" />
-        </div>
-
-        <div class="field field--full">
-          <label>Your Message</label>
-          <textarea rows="4" placeholder="Tell us your automation needs"></textarea>
-        </div>
-
-        <button type="submit" class="btn-primary">Send</button>
-      </form>
+    <!-- Pager -->
+    <div class="flex items-center gap-3 mt-4">
+      <button id="prev" class="px-3 py-2 rounded-md border bg-white disabled:opacity-50">Prev</button>
+      <button id="next" class="px-3 py-2 rounded-md border bg-white disabled:opacity-50">Next</button>
+      <div id="pagerInfo" class="text-sm text-gray-600 ml-auto"></div>
     </div>
-  </section>
+  </div>
 
+  <script>
+    // ---- Setup (UMD global is `supabase`, not `supabasejs`)
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+    // Elements
+    const el = (id) => document.getElementById(id);
+    const makeEl = el("make");
+    const modelEl = el("model");
+    const variantEl = el("variant");
+    const clearBtn = el("clearBtn");
+    const prevBtn = el("prev");
+    const nextBtn = el("next");
+    const pagerInfo = el("pagerInfo");
+    const pageSizeSel = el("pageSize");
+    const tbody = el("tbody");
+    const status = el("status");
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 OmniAssist</p>
-    </div>
-  </footer>
+    // State
+    let filters = { make: "", model: "", variant: "" };
+    let page = 1;
+    let pageSize = parseInt(pageSizeSel.value, 10);
+    let total = null;
 
+    // Debounce helper
+    let timer;
+    const debounce = (fn, wait = 250) => {
+      clearTimeout(timer);
+      timer = setTimeout(fn, wait);
+    };
+
+    const like = (v) => (v && v.trim() ? `%${v.trim()}%` : null);
+
+    function renderRows(rows) {
+      tbody.innerHTML = "";
+      rows.forEach(r => {
+        const tr = document.createElement("tr");
+        const tdMake = document.createElement("td");
+        const tdModel = document.createElement("td");
+        const tdVariant = document.createElement("td");
+        tdMake.className = tdModel.className = tdVariant.className = "py-2 px-3";
+
+        // Use mapped keys; fall back to common alternatives
+        tdMake.textContent    = r[COLUMN_MAP.make]    ?? r.make    ?? r.Make    ?? "";
+        tdModel.textContent   = r[COLUMN_MAP.model]   ?? r.model   ?? r.Model   ?? "";
+        tdVariant.textContent = r[COLUMN_MAP.variant] ?? r.variant ?? r.Variant ?? r.Deritaive ?? "";
+
+        tr.append(tdMake, tdModel, tdVariant);
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function fetchData() {
+      status.textContent = "Loading…";
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+
+      const from = (page - 1) * pageSize;
+      const to = from + pageSize - 1;
+
+      // Select only what we display
+      let query = supabaseClient
+        .from(TABLE_NAME)
+        .select(`${COLUMN_MAP.make},${COLUMN_MAP.model},${COLUMN_MAP.variant}`, { count: "exact" })
+        .range(from, to);
+
+      // Stable sort for pagination
+      if (DEFAULT_SORT?.column) {
+        query = query.order(DEFAULT_SORT.column, { ascending: !!DEFAULT_SORT.ascending, nullsFirst: false });
+      }
+
+      // -------- OR-style filter across make/model/variant ----------
+      const makeLike = like(filters.make);
+      const modelLike = like(filters.model);
+      const variantLike = like(filters.variant);
+
+      const ors = [];
+      if (makeLike)    ors.push(`${COLUMN_MAP.make}.ilike.${makeLike}`);
+      if (modelLike)   ors.push(`${COLUMN_MAP.model}.ilike.${modelLike}`);
+      if (variantLike) ors.push(`${COLUMN_MAP.variant}.ilike.${variantLike}`);
+
+      if (ors.length) {
+        query = query.or(ors.join(","));
+      }
+      // ------------------------------------------------------------
+
+      const { data, error, count } = await query;
+
+      if (error) {
+        status.textContent = "Error: " + error.message;
+        tbody.innerHTML = "";
+        pagerInfo.textContent = "";
+        return;
+      }
+
+      total = count ?? null;
+      renderRows(data || []);
+
+      // Pager state
+      const lastPage = total ? Math.max(1, Math.ceil(total / pageSize))
+                             : (data.length < pageSize ? page : page + 1);
+      prevBtn.disabled = page <= 1;
+      nextBtn.disabled = total ? page >= lastPage : (data.length < pageSize);
+
+      pagerInfo.textContent = total
+        ? `Page ${page} of ${lastPage} • ${total} total`
+        : `Page ${page}`;
+
+      status.textContent = (data && data.length) ? "" : "No results";
+    }
+
+    function onInputChanged() {
+      debounce(() => {
+        page = 1;
+        filters = {
+          make: makeEl.value,
+          model: modelEl.value,
+          variant: variantEl.value
+        };
+        fetchData();
+      }, 250);
+    }
+
+    // Events
+    [makeEl, modelEl, variantEl].forEach(inp => inp.addEventListener("input", onInputChanged));
+    clearBtn.addEventListener("click", () => {
+      makeEl.value = "";
+      modelEl.value = "";
+      variantEl.value = "";
+      filters = { make: "", model: "", variant: "" };
+      page = 1;
+      fetchData();
+    });
+    pageSizeSel.addEventListener("change", () => {
+      pageSize = parseInt(pageSizeSel.value, 10);
+      page = 1;
+      fetchData();
+    });
+    prevBtn.addEventListener("click", () => { if (page > 1) { page--; fetchData(); } });
+    nextBtn.addEventListener("click", () => { page++; fetchData(); });
+
+    // Initial load
+    fetchData();
+  </script>
 </body>
 </html>
