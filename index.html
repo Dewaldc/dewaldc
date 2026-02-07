@@ -4,40 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OmniAssist – Intelligent Automation</title>
-  <meta name="description" content="OmniAssist helps teams automate workflows with AI, integrations, and observability." />
   <meta name="theme-color" content="#0A84FF" />
   <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
-
-  <!-- Open Graph (optional) -->
-  <meta property="og:title" content="OmniAssist – Intelligent Automation" />
-  <meta property="og:description" content="Automate workflows, reduce errors, and accelerate delivery." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="og-image.png" />
 </head>
 <body>
 
   <!-- HEADER -->
   <header class="site-header">
     <div class="container nav-container">
-      <!-- Brand -->
-      <a href="index.html" class="brand" aria-label="OmniAssist home">
-        <img src="logo.png" alt="OmniAssist Logo" class="logo" />
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="OmniAssist Logo" class="logo">
         <span class="brand-name">OmniAssist</span>
       </a>
 
-      <!-- Hamburger -->
       <button class="nav-toggle" id="navToggle" aria-label="Open Menu" aria-expanded="false" aria-controls="primary-nav">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
-      <!-- Navigation -->
       <nav class="nav-links" id="primary-nav" role="navigation">
         <a href="#features" class="nav-link">Features</a>
         <a href="about.html" class="nav-link">About</a>
-        <a href="#contact" class="nav-link btn-nav">Contact</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
     </div>
   </header>
@@ -63,19 +51,17 @@
         <article class="feature-card">
           <div class="icon" aria-hidden="true">🤖</div>
           <h3>AI Orchestration</h3>
-          <p>Standardize prompts, apply guardrails, and route to the best model for the task.</p>
+          <p>Consistent prompts, guardrails, and dynamic routing.</p>
         </article>
-
         <article class="feature-card">
           <div class="icon" aria-hidden="true">🔗</div>
           <h3>Integrations</h3>
-          <p>Connect CRMs, ERPs, support tools, and data warehouses—without brittle scripts.</p>
+          <p>Connect CRMs, ERPs, support tools, and more.</p>
         </article>
-
         <article class="feature-card">
           <div class="icon" aria-hidden="true">📈</div>
           <h3>Observability</h3>
-          <p>Trace runs, inspect inputs/outputs, and govern performance across automations.</p>
+          <p>Trace every run with full transparency and control.</p>
         </article>
       </div>
     </div>
@@ -85,28 +71,24 @@
   <section class="contact" id="contact" aria-label="Contact">
     <div class="container">
       <h2>Talk to our team</h2>
-      <form class="contact-form" action="#" method="post">
+      <form class="contact-form">
         <div class="field">
           <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" required />
+          <input id="name" type="text" placeholder="Your name" required />
         </div>
-
         <div class="field">
           <label for="email">Work email</label>
-          <input id="email" name="email" type="email" placeholder="you@company.com" required />
+          <input id="email" type="email" placeholder="you@company.com" required />
         </div>
-
         <div class="field">
           <label for="company">Company</label>
-          <input id="company" name="company" type="text" placeholder="Company name" />
+          <input id="company" type="text" placeholder="Company name" />
         </div>
-
         <div class="field field--full">
-          <label for="message">What would you like to automate?</label>
-          <textarea id="message" name="message" rows="4" placeholder="Share your goals or current workflow."></textarea>
+          <label for="message">Your Message</label>
+          <textarea id="message" rows="4" placeholder="Tell us your automation needs"></textarea>
         </div>
-
-        <button type="submit" class="btn-primary">Send</button>
+        <button class="btn-primary" type="submit">Send</button>
       </form>
     </div>
   </section>
@@ -117,6 +99,5 @@
       <p>© 2026 OmniAssist</p>
     </div>
   </footer>
-
 </body>
 </html>
