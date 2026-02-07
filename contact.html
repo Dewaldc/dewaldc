@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniAssist – Contact</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact – OmniAssist</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
 
-<header>
-    https://yourlogo.png" class="logo">
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html" class="active">Contact</a>
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="index.html" class="brand">
+      <img src="logo.png" class="logo">
+      <span class="brand-name">OmniAssist</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <nav class="nav-links" id="primary-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
     </nav>
+  </div>
 </header>
 
-<section class="content">
-    <h2>Contact Us</h2>
-    <p>Email: support@omniassist.com</p>
+<section class="page-hero">
+  <div class="container">
+    <h1>Contact <span class="accent">Us</span></h1>
+  </div>
 </section>
 
-<footer>
+<main class="container">
+  <section class="content card">
+    <h2>Get in Touch</h2>
+    <p>Email: support@omniassist.com</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
     <p>© 2026 OmniAssist</p>
+  </div>
 </footer>
 
 </body>

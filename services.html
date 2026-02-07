@@ -1,36 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - My Website</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services – OmniAssist</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
 
-<header>
-    <h1>Our Services</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html" class="active">Services</a>
-        <a href="contact.html">Contact</a>
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="index.html" class="brand">
+      <img src="logo.png" class="logo">
+      <span class="brand-name">OmniAssist</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <nav class="nav-links" id="primary-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link active">Services</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
+  </div>
 </header>
 
-<section class="content">
-    <h2>What We Offer</h2>
-
-    <ul class="service-list">
-        <li>Website Development</li>
-        <li>UI/UX Design</li>
-        <li>Technical Support</li>
-    </ul>
+<section class="page-hero">
+  <div class="container">
+    <h1>Our <span class="accent">Services</span></h1>
+  </div>
 </section>
 
-<footer>
-    <p>© 2026 My Website</p>
+<main class="container grid-3">
+  <article class="card service">
+    <h3>AI‑Powered Assistance</h3>
+    <p>Smart guidance and task automation built right into your workflow.</p>
+  </article>
+
+  <article class="card service">
+    <h3>Workflow Automation</h3>
+    <p>Reduce busywork with automated triggers, routines, and integrations.</p>
+  </article>
+
+  <article class="card service">
+    <h3>Integrations</h3>
+    <p>Connect your tools with simple API‑driven linkups across your systems.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 OmniAssist</p>
+  </div>
 </footer>
 
 </body>

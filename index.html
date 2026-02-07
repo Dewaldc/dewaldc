@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniAssist – Home</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OmniAssist – Home</title>
+
+  <!-- Correct CSS path -->
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Correct JS path -->
+  <script src="script.js" defer></script>
 </head>
 
 <body>
 
-<header>
-    https://yourlogo.png" alt="OmniAssist Logo" class="logo">
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="index.html" class="brand">
+      <img src="logo.png" class="logo" alt="OmniAssist Logo">
+      <span class="brand-name">OmniAssist</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <nav class="nav-links" id="primary-nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
+  </div>
 </header>
 
 <section class="hero">
-    <h1>Welcome to OmniAssist</h1>
+  <div class="container">
+    <h1>Welcome to <span class="accent">OmniAssist</span></h1>
     <p>Your trusted smart‑assistant platform.</p>
+  </div>
 </section>
 
-<section class="content">
-    <h2>What We Do</h2>
-    <p>
-        OmniAssist delivers smart automation, AI‑powered help systems, and modern digital support tools for teams and individuals.
-    </p>
-</section>
-
-<footer>
+<footer class="site-footer">
+  <div class="container">
     <p>© 2026 OmniAssist</p>
+  </div>
 </footer>
 
 </body>
