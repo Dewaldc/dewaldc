@@ -3,64 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OmniAssist – Intelligent Automation</title>
-
+  <title>OmniAssist – Intelligent Automation, Delivered</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="OmniAssist – Intelligent Automation, Delivered" />
+  <meta property="og:description" content="Automate workflows, reduce errors, and accelerate delivery with OmniAssist. Integrations, AI orchestration, and observability in one platform." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="og-image.png" />
+  <meta name="theme-color" content="#0A84FF" />
 </head>
 
 <body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand" aria-label="OmniAssist home">
+        <img src="logo.png" alt="OmniAssist" class="logo" />
+        <span class="brand-name">OmniAssist</span>
+      </a>
 
-<header class="site-header">
-  <div class="container nav-container">
+      <button class="nav-toggle" id="navToggle" aria-label="Open Menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
 
-    <!-- LOGO + BRAND -->
-    <a href="index.html" class="brand">
-      <img src="logo.png" alt="OmniAssist Logo" class="logo">
-      <span class="brand-name">OmniAssist</span>
-    </a>
-
-    <!-- MOBILE MENU BUTTON -->
-    <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
-    <!-- NAVIGATION -->
-    <nav class="nav-links" id="primary-nav">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="services.html" class="nav-link">Services</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-
-  </div>
-</header>
-
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="container">
-
-    <!-- Spinning Logo -->
-    <div class="logo-container">
-      <img src="logo.png" class="logo-spin" alt="OmniAssist Spinning Logo">
+      <nav class="nav-links" id="primary-nav" role="navigation">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#solutions" class="nav-link">Solutions</a>
+        <a href="#customers" class="nav-link">Customers</a>
+        <a href="#contact" class="nav-link btn-nav">Get a demo</a>
+      </nav>
     </div>
+  </header>
 
-    <h1 class="title">OmniAssist</h1>
-    <p class="subtitle">Your Intelligent Automation Partner</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1>Automate work. <span class="accent">Accelerate results.</span></h1>
+        <p class="subtitle">
+          OmniAssist unifies AI, integrations, and workflow automation so your teams can ship faster with fewer errors—no heavy lift required.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Book a demo</a>
+          <a href="#features" class="btn-secondary">See how it works</a>
+        </div>
+        <div class="hero-meta">
+          <span>⏱ Deploy in days</span>
+          <span>🛡 SOC 2-ready architecture</span>
+          <span>🔌 60+ integrations</span>
+        </div>
+      </div>
 
-    <!-- CALL TO ACTION BUTTON -->
-    <a href="about.html" class="btn-primary">Get Started</a>
+      <!-- Decorative illustration/graphic (replace with an SVG or image) -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="glass card-1"></div>
+        <div class="glass card-2"></div>
+        <div class="glass card-3"></div>
+      </div>
+    </div>
+  </section>
 
-  </div>
-</section>
+  <!-- SOCIAL PROOF -->
+  <section class="proof" id="customers">
+    <div class="container">
+      <p class="eyebrow">Trusted by teams who automate at scale</p>
+      <div class="logo-row">
+        <img src="logo-placeholder-1.svg" alt="Customer 1" />
+        <img src="logo-placeholder-2.svg" alt="Customer 2" />
+        <img src="logo-placeholder-3.svg" alt="Customer 3" />
+        <img src="logo-placeholder-4.svg" alt="Customer 4" />
+      </div>
+      <blockquote class="testimonial">
+        “With OmniAssist, we cut manual handoffs by 70% in the first quarter—without refactoring our stack.”
+        <cite>— Head of Operations, Fintech</cite>
+      </blockquote>
+    </div>
+  </section>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 OmniAssist</p>
-  </div>
-</footer>
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2>Everything you need to automate end‑to‑end</h2>
+      <p class="section-lead">Orchestrate AI, systems, and human-in-the-loop in one place.</p>
 
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="icon">🤖</div>
+          <h3>AI Orchestration</h3>
+          <p>Bring your LLMs and models together with policies, guardrails, and consistent prompts.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">🔗</div>
+          <h3>Deep Integrations</h3>
+          <p>Connect CRMs, ERPs, ticketing, and data warehouses. No brittle scripts.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">📈</div>
+          <h3>Observability</h3>
+          <p>Trace runs, inspect inputs/outputs, and govern performance across automations.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="icon">🧩</div>
+          <h3>Human-in-the-loop</h3>
+          <p>Route approvals and exceptions to the right people with context-rich reviews.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS / USE CASES -->
+  <section class="solutions" id="solutions">
+    <div class="container">
+      <h2>Built for real workflows</h2>
+      <div class="solutions-grid">
+        <div class="solution">
+          <h3>Customer Operations</h3>
+          <p>Auto-triage tickets, draft responses, and sync across CRM + support tools.</p>
+        </div>
+        <div class="solution">
+          <h3>Finance</h3>
+          <p>Reconcile transactions, detect anomalies, and prepare close packages.</p>
+        </div>
+        <div class="solution">
+          <h3>IT & Security</h3>
+          <p>Provision access, manage requests, and enforce policy checks at scale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta">
+    <div class="container cta-box">
+      <h2>See OmniAssist in action</h2>
+      <p>Get a tailored walkthrough for your stack and goals.</p>
+      <a href="#contact" class="btn-primary">Request a demo</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" aria-label="Contact">
+    <div class="container">
+      <h2>Talk to our team</h2>
+      <form class="contact-form" action="#" method="post" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" required />
+        </div>
+        <div class="field">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" placeholder="Company name" />
+        </div>
+        <div class="field">
+          <label for="message">What would you like to automate?</label>
+          <textarea id="message" name="message" rows="4" placeholder="Share your goals or current workflow."></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="" class="logo small" />
+        <span class="brand-name">OmniAssist</span>
+        <p class="copyright">© 2026 OmniAssist</p>
+      </div>
+      <nav class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#customers">Customers</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+      <div class="footer-cta">
+        <p>Ready to automate more, faster?</p>
+        <a href="#contact" class="btn-secondary">Get a demo</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

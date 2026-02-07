@@ -1,9 +1,25 @@
-// Mobile menu toggle
-const navToggle = document.getElementById("navToggle");
-const body = document.body;
+// Mobile nav toggle + accessibility
+const navToggle = document.getElementById('navToggle');
+const primaryNav = document.getElementById('primary-nav');
 
-if (navToggle) {
-  navToggle.addEventListener("click", () => {
-    body.classList.toggle("nav-open");
+if (navToggle && primaryNav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = primaryNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 }
+
+// Smooth scroll for in-page anchors (#section links)
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const href = a.getAttribute('href');
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Close mobile menu after navigating
+      primaryNav?.classList.remove('open');
+      navToggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
