@@ -1,8 +1,7 @@
-// Elements
+// Mobile nav: toggle open/closed, ESC to close, close on link click
 const navToggle = document.getElementById('navToggle');
 const primaryNav = document.getElementById('primary-nav');
 
-// Toggle mobile nav
 if (navToggle && primaryNav) {
   navToggle.addEventListener('click', () => {
     const isOpen = primaryNav.classList.toggle('open');
@@ -10,7 +9,7 @@ if (navToggle && primaryNav) {
     document.body.classList.toggle('no-scroll', isOpen);
   });
 
-  // Close on ESC
+  // Close via ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && primaryNav.classList.contains('open')) {
       primaryNav.classList.remove('open');
@@ -19,7 +18,7 @@ if (navToggle && primaryNav) {
     }
   });
 
-  // Close after clicking a link
+  // Close after clicking any nav link
   primaryNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       primaryNav.classList.remove('open');
@@ -29,7 +28,7 @@ if (navToggle && primaryNav) {
   });
 }
 
-// Smooth scroll for in-page anchors
+// Smooth scroll for in-page anchors (#features, #contact)
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
