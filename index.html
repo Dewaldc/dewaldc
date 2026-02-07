@@ -1,22 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OmniAssist – Intelligent Automation</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
 <header class="site-header">
   <div class="container nav-container">
 
-    logo.png
+    <!-- LOGO + BRAND -->
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="OmniAssist Logo" class="logo">
       <span class="brand-name">OmniAssist</span>
     </a>
 
+    <!-- MOBILE MENU BUTTON -->
     <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
 
+    <!-- NAVIGATION -->
     <nav class="nav-links" id="primary-nav">
-      index.htmlHome</a>
-      about.htmlAbout</a>
-      services.htmlServices</a>
-      contact.htmlContact</a>
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
 
   </div>
 </header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="container">
+
+    <!-- Spinning Logo -->
+    <div class="logo-container">
+      <img src="logo.png" class="logo-spin" alt="OmniAssist Spinning Logo">
+    </div>
+
+    <h1 class="title">OmniAssist</h1>
+    <p class="subtitle">Your Intelligent Automation Partner</p>
+
+    <!-- CALL TO ACTION BUTTON -->
+    <a href="about.html" class="btn-primary">Get Started</a>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 OmniAssist</p>
+  </div>
+</footer>
+
+</body>
+</html>
