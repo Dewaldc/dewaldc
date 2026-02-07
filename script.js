@@ -1,103 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OmniAssist – Intelligent Automation</title>
-  <meta name="theme-color" content="#0A84FF" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
-</head>
-<body>
+// Hamburger toggle
+const navToggle = document.getElementById("navToggle");
+const primaryNav = document.getElementById("primary-nav");
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="index.html" class="brand">
-        <img src="logo.png" alt="OmniAssist Logo" class="logo">
-        <span class="brand-name">OmniAssist</span>
-      </a>
+if (navToggle && primaryNav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = primaryNav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", isOpen);
+    document.body.classList.toggle("no-scroll", isOpen);
+  });
 
-      <button class="nav-toggle" id="navToggle" aria-label="Open Menu" aria-expanded="false" aria-controls="primary-nav">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
+  // Close on ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && primaryNav.classList.contains("open")) {
+      primaryNav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("no-scroll");
+    }
+  });
 
-      <nav class="nav-links" id="primary-nav" role="navigation">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
-    </div>
-  </header>
+  // Close after clicking any link
+  primaryNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      primaryNav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("no-scroll");
+    });
+  });
+}
 
-  <!-- HERO -->
-  <section class="hero" aria-label="Intro">
-    <div class="container hero-inner">
-      <h1 class="title">Automate Work. Accelerate Results.</h1>
-      <p class="subtitle">
-        Streamline workflows and reduce manual effort with intelligent automation that fits your stack.
-      </p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Get Started</a>
-        <a href="#features" class="btn-secondary">See Features</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features" id="features" aria-label="Key features">
-    <div class="container">
-      <div class="feature-grid">
-        <article class="feature-card">
-          <div class="icon" aria-hidden="true">🤖</div>
-          <h3>AI Orchestration</h3>
-          <p>Consistent prompts, guardrails, and dynamic routing.</p>
-        </article>
-        <article class="feature-card">
-          <div class="icon" aria-hidden="true">🔗</div>
-          <h3>Integrations</h3>
-          <p>Connect CRMs, ERPs, support tools, and more.</p>
-        </article>
-        <article class="feature-card">
-          <div class="icon" aria-hidden="true">📈</div>
-          <h3>Observability</h3>
-          <p>Trace every run with full transparency and control.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact" aria-label="Contact">
-    <div class="container">
-      <h2>Talk to our team</h2>
-      <form class="contact-form">
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your name" required />
-        </div>
-        <div class="field">
-          <label for="email">Work email</label>
-          <input id="email" type="email" placeholder="you@company.com" required />
-        </div>
-        <div class="field">
-          <label for="company">Company</label>
-          <input id="company" type="text" placeholder="Company name" />
-        </div>
-        <div class="field field--full">
-          <label for="message">Your Message</label>
-          <textarea id="message" rows="4" placeholder="Tell us your automation needs"></textarea>
-        </div>
-        <button class="btn-primary" type="submit">Send</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 OmniAssist</p>
-    </div>
-  </footer>
-</body>
-</html>
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener("click", e => {
+    const target = document.querySelector(a.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
