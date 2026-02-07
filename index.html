@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniAssist – Home</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OmniAssist – Home</title>
 
+  <!-- CORRECT CSS PATH -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- CORRECT JS PATH -->
+  <script src="script.js" defer></script>
+</head>
 <body>
 
-<header>
-    https://yourlogo.png" alt="OmniAssist Logo" class="logo">
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+<header class="site-header">
+  <div class="container nav-container">
+    index.html
+      logo.png
+      <span class="brand-name">OmniAssist</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle"
+            aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <nav id="primary-nav" class="nav-links" aria-label="Primary">
+      index.htmlHome</a>
+      about.htmlAbout</a>
+      services.htmlServices</a>
+      contact.htmlContact</a>
     </nav>
+  </div>
 </header>
 
 <section class="hero">
-    <h1>Welcome to OmniAssist</h1>
+  <div class="container">
+    <h1>Welcome to <span class="accent">OmniAssist</span></h1>
     <p>Your trusted smart‑assistant platform.</p>
+  </div>
 </section>
 
-<section class="content">
-    <h2>What We Do</h2>
-    <p>
-        OmniAssist delivers smart automation, AI‑powered help systems, and modern digital support tools for teams and individuals.
-    </p>
-</section>
-
-<footer>
+<footer class="site-footer">
+  <div class="container">
     <p>© 2026 OmniAssist</p>
+  </div>
 </footer>
 
 </body>
