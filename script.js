@@ -26,7 +26,6 @@ if (navToggle && primaryNav) {
 }
 
 // ===== Scroll-triggered fade-in (reveal-once) =====
-// Reveals any element with .fade-in when ~15% visible, then unobserves it
 (() => {
   const revealEls = document.querySelectorAll('.fade-in');
   if (!revealEls.length) return;
@@ -51,4 +50,19 @@ if (navToggle && primaryNav) {
   });
 
   revealEls.forEach(el => io.observe(el));
+})();
+
+// ===== Quick-links banner rotator =====
+(() => {
+  const rotator = document.getElementById('quick-rotator');
+  if (!rotator) return;
+  const items = Array.from(rotator.querySelectorAll('.rotator-item'));
+  if (items.length <= 1) return;
+
+  let idx = 0;
+  setInterval(() => {
+    items[idx].classList.remove('is-active');
+    idx = (idx + 1) % items.length;
+    items[idx].classList.add('is-active');
+  }, 3000);
 })();
