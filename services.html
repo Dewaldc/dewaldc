@@ -26,12 +26,15 @@
   <header class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand">
-        <img src="/assets/Kuholi.png" alt="KuHoLi logo" class="logo-img" width="72" height="72" />
+        <picture>
+          <source srcset="/assets/Kuholi.webp" type="image/webp" />
+          <img src="/assets/Kuholi.png" alt="KuHoLi logo" class="logo-img" width="72" height="72" loading="eager" decoding="async" />
+        </picture>
         <span class="brand-name">kuholi lounge</span>
       </a>
       <nav class="nav-ribbon" aria-label="Primary">
         <button id="navArrowLeft" class="nav-arrow" aria-label="Scroll menu left" hidden>
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 19L8 12l7-7" stroke="currentColor"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 19L8 12l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-track" tabindex="0">
           <a class="nav-pill" href="index.html">Home</a>
@@ -44,7 +47,7 @@
           <a class="nav-pill" href="contact.html">Contact</a>
         </div>
         <button id="navArrowRight" class="nav-arrow" aria-label="Scroll menu right" hidden>
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <span id="navInk" class="nav-ink" aria-hidden="true"></span>
       </nav>
@@ -53,7 +56,10 @@
 
   <section class="banner" aria-label="Quick links">
     <div class="container banner-inner">
-      <img src="/assets/Kuholi.png" alt="" class="banner-logo" width="28" height="28" />
+      <picture>
+        <source srcset="/assets/Kuholi.webp" type="image/webp" />
+        <img src="/assets/Kuholi.png" alt="" class="banner-logo" width="28" height="28" loading="lazy" decoding="async" />
+      </picture>
       <div class="banner-rotator" id="quick-rotator">
         <a class="rotator-item" href="concept.html">Explore the Concept →</a>
         <a class="rotator-item" href="lounge.html">See the Lounge →</a>
@@ -80,7 +86,7 @@
         </article>
         <article class="card soft fade-in delay-2">
           <h3>curated whiskey</h3>
-          <p class="muted">Flights & pairings highlighting craftsmanship and regional character.</p>
+          <p class="muted">Flights &amp; pairings highlighting craftsmanship and regional character.</p>
         </article>
         <article class="card soft fade-in delay-3">
           <h3>holistic therapies</h3>
@@ -88,12 +94,25 @@
         </article>
         <article class="card fade-in delay-1">
           <h3>culinary nights</h3>
-          <p class="muted">Minimalist menus & themed events with local hospitality talent.</p>
+          <p class="muted">Minimalist menus &amp; themed events with local hospitality talent.</p>
         </article>
         <article class="card fade-in delay-2">
-          <h3>retail & lifestyle</h3>
+          <h3>retail &amp; lifestyle</h3>
           <p class="muted">Earthy home goods, apothecary, glassware, and wellness essentials.</p>
         </article>
         <article class="card fade-in delay-3">
           <h3>cannabis‑infused edibles</h3>
-          <p class="muted">Offered only where compliant and
+          <p class="muted">Offered only where compliant and appropriate.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© <span id="year"></span> kuholi lounge. All rights reserved.</div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -26,12 +26,15 @@
   <header class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand">
-        <img src="/assets/Kuholi.png" alt="KuHoLi logo" class="logo-img" width="72" height="72" />
+        <picture>
+          <source srcset="/assets/Kuholi.webp" type="image/webp" />
+          <img src="/assets/Kuholi.png" alt="KuHoLi logo" class="logo-img" width="72" height="72" loading="eager" decoding="async" />
+        </picture>
         <span class="brand-name">kuholi lounge</span>
       </a>
       <nav class="nav-ribbon" aria-label="Primary">
         <button id="navArrowLeft" class="nav-arrow" aria-label="Scroll menu left" hidden>
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 19L8 12l7-7" stroke="currentColor"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 19L8 12l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="nav-track" tabindex="0">
           <a class="nav-pill" href="index.html">Home</a>
@@ -44,7 +47,7 @@
           <a class="nav-pill" href="contact.html">Contact</a>
         </div>
         <button id="navArrowRight" class="nav-arrow" aria-label="Scroll menu right" hidden>
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <span id="navInk" class="nav-ink" aria-hidden="true"></span>
       </nav>
@@ -53,7 +56,10 @@
 
   <section class="banner" aria-label="Quick links">
     <div class="container banner-inner">
-      <img src="/assets/Kuholi.png" alt="" class="banner-logo" width="28" height="28" />
+      <picture>
+        <source srcset="/assets/Kuholi.webp" type="image/webp" />
+        <img src="/assets/Kuholi.png" alt="" class="banner-logo" width="28" height="28" loading="lazy" decoding="async" />
+      </picture>
       <div class="banner-rotator" id="quick-rotator">
         <a class="rotator-item" href="lounge.html">See the Lounge →</a>
         <a class="rotator-item" href="brand.html">Brand & Palette →</a>
