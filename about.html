@@ -3,54 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About – OmniAssist</title>
+  <title>kuholi lounge — about</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="Kuholi.png" alt="KuHoLi logo" class="logo-img" />
+        <span class="brand-name">kuholi lounge</span>
+      </a>
+      <button class="nav-toggle" id="navToggle">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="primary-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="concept.html" class="nav-link">Concept</a>
+        <a href="lounge.html" class="nav-link">Lounge</a>
+        <a href="brand.html" class="nav-link">Brand</a>
+        <a href="strategy.html" class="nav-link">Strategy</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<header class="site-header">
-  <div class="container nav-container">
-    <a href="index.html" class="brand">
-      <img src="logo.png" class="logo">
-      <span class="brand-name">OmniAssist</span>
-    </a>
-
-    <button class="nav-toggle" id="navToggle">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
-
-    <nav class="nav-links" id="primary-nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link active">About</a>
-      <a href="services.html" class="nav-link">Services</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section class="page-hero">
-  <div class="container">
-    <h1>About <span class="accent">Us</span></h1>
-  </div>
-</section>
-
-<main class="container">
-  <section class="content card">
-    <h2>Our Mission</h2>
-    <p>
-      OmniAssist simplifies your workflow with seamless automation, intuitive tools,
-      and next‑generation digital support.
-    </p>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">about <span class="accent">us</span></h1>
+    </div>
   </section>
-</main>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 OmniAssist</p>
-  </div>
-</footer>
+  <main class="container">
+    <section class="content card">
+      <h2>Our Mission</h2>
+      <p>
+        OmniAssist simplifies your workflow with seamless automation, intuitive tools,
+        and next‑generation digital support.
+      </p>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> kuholi lounge</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

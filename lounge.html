@@ -9,19 +9,24 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-
   <!-- header -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand"><span class="brand-name">kuholi lounge</span></a>
+      <a href="index.html" class="brand">
+        <img src="Kuholi.png" alt="KuHoLi logo" class="logo-img" />
+        <span class="brand-name">kuholi lounge</span>
+      </a>
+
       <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
+
       <nav id="primary-nav" class="nav-links" aria-label="Primary">
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="concept.html">Concept</a>
         <a class="nav-link" href="lounge.html">Lounge</a>
         <a class="nav-link" href="brand.html">Brand</a>
+        <a class="nav-link" href="strategy.html">Strategy</a>
         <a class="nav-link" href="contact.html">Contact</a>
       </nav>
     </div>
@@ -49,7 +54,6 @@
           <h3>holistic therapies</h3>
           <p>Bodywork, breathwork, sound baths, herbal rituals; bookable sessions.</p>
         </div>
-
         <div class="card">
           <h3>cannabis‑infused edibles</h3>
           <p>Measured, premium edibles (offered where compliant and appropriate).</p>
@@ -74,6 +78,3 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
-</html>
