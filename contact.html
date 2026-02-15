@@ -7,31 +7,43 @@
   <meta name="description" content="Contact KuHoLi Lounge — visit details and enquiry form." />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
+  <link rel="icon" href="Kuholi.png" />
+  <meta name="theme-color" content="#9CAF88" />
 </head>
 <body>
 
-<!-- header -->
 <header class="site-header">
   <div class="container nav-container">
     <a href="index.html" class="brand">
       <img src="Kuholi.png" alt="KuHoLi logo" class="logo-img" />
       <span class="brand-name">kuholi lounge</span>
     </a>
-
     <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-
     <nav id="primary-nav" class="nav-links" aria-label="Primary">
       <a class="nav-link" href="index.html">Home</a>
       <a class="nav-link" href="concept.html">Concept</a>
       <a class="nav-link" href="lounge.html">Lounge</a>
       <a class="nav-link" href="brand.html">Brand</a>
       <a class="nav-link" href="strategy.html">Strategy</a>
-      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link" href="contact.html" aria-current="page">Contact</a>
     </nav>
   </div>
 </header>
+
+<section class="banner" aria-label="Quick links">
+  <div class="container banner-inner">
+    <img src="Kuholi.png" alt="" class="banner-logo" aria-hidden="true" />
+    <div class="banner-rotator" id="quick-rotator">
+      <a class="rotator-item is-active" href="concept.html">Explore the Concept →</a>
+      <a class="rotator-item" href="lounge.html">See the Lounge →</a>
+      <a class="rotator-item" href="brand.html">Brand & Palette →</a>
+      <a class="rotator-item" href="strategy.html">Strategy & Insights →</a>
+      <a class="rotator-item" href="index.html">Back to Home →</a>
+    </div>
+  </div>
+</section>
 
 <main>
   <section class="section fade-in">
@@ -44,17 +56,14 @@
           <label for="name">name</label>
           <input id="name" type="text" placeholder="your name" required />
         </div>
-
         <div class="field">
           <label for="email">email</label>
           <input id="email" type="email" placeholder="you@example.com" required />
         </div>
-
         <div class="field field--full">
           <label for="message">message</label>
           <textarea id="message" placeholder="how can we help?" rows="5" required></textarea>
         </div>
-
         <div class="actions">
           <button class="btn-primary" type="submit">send</button>
         </div>
@@ -63,14 +72,12 @@
   </section>
 </main>
 
-<!-- footer -->
 <footer class="site-footer">
   <div class="container">
     <div>© <span id="year"></span> kuholi lounge. All rights reserved.</div>
     <div class="footer-powered">Powered by OmniAssist — bringing you the KuHoLi experience.</div>
   </div>
 </footer>
-
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

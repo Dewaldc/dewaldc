@@ -7,6 +7,8 @@
   <meta name="description" content="About KuHoLi Lounge — our mission and ethos." />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
+  <link rel="icon" href="Kuholi.png" />
+  <meta name="theme-color" content="#9CAF88" />
 </head>
 <body>
 
@@ -16,12 +18,10 @@
       <img src="Kuholi.png" alt="KuHoLi logo" class="logo-img" />
       <span class="brand-name">kuholi lounge</span>
     </a>
-
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-
-    <nav class="nav-links" id="primary-nav" aria-label="Primary">
+    <nav id="primary-nav" class="nav-links" aria-label="Primary">
       <a class="nav-link" href="index.html">Home</a>
       <a class="nav-link" href="concept.html">Concept</a>
       <a class="nav-link" href="lounge.html">Lounge</a>
@@ -32,14 +32,25 @@
   </div>
 </header>
 
-<section class="section fade-in">
-  <div class="container">
-    <h1 class="title fade-in delay-1">about <span class="accent">us</span></h1>
-    <p class="subtitle fade-in delay-2">Our mission and ethos.</p>
+<section class="banner" aria-label="Quick links">
+  <div class="container banner-inner">
+    <img src="Kuholi.png" alt="" class="banner-logo" aria-hidden="true" />
+    <div class="banner-rotator" id="quick-rotator">
+      <a class="rotator-item is-active" href="concept.html">Explore the Concept →</a>
+      <a class="rotator-item" href="lounge.html">See the Lounge →</a>
+      <a class="rotator-item" href="brand.html">Brand & Palette →</a>
+      <a class="rotator-item" href="strategy.html">Strategy & Insights →</a>
+      <a class="rotator-item" href="contact.html">Contact / Visit →</a>
+    </div>
   </div>
 </section>
 
 <main class="container">
+  <section class="section fade-in">
+    <h1 class="title fade-in delay-1">about <span class="accent">us</span></h1>
+    <p class="subtitle fade-in delay-2">Our mission and ethos.</p>
+  </section>
+
   <section class="content card fade-in delay-1">
     <h2>Our Mission</h2>
     <p>
@@ -53,7 +64,6 @@
     <p>© <span id="year"></span> kuholi lounge</p>
   </div>
 </footer>
-
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
