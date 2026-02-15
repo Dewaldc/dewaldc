@@ -1,81 +1,112 @@
-<!doctype html> 
+<!doctype html>
 <html lang="en">
-<link rel="stylesheet" href="styles.css" />
-<script defer src="script.js"></script>
-<link rel="icon" href="Kuholi.png" type="image/png" />
-<meta name="theme-color" content="#111314" />
-<meta name="color-scheme" content="dark" /><head>
+<head>
   <meta charset="utf-8" />
   <title>kuholi lounge — home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="kuholi lounge — whiskey, wellness & wholeness. artisanal coffee, curated whiskey, holistic therapies, and premium lifestyle retail." />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-  <link rel="icon" href="Kuholi.png" />
-  <meta name="theme-color" content="#9CAF88" />
+  <meta name="description"
+        content="kuholi lounge — whiskey, wellness & wholeness. artisanal coffee, curated whiskey, holistic therapies, and premium lifestyle retail." />
+  <link rel="icon" href="/assets/Kuholi.png" type="image/png" />
+  <meta name="theme-color" content="#111314" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://your-domain.com/" />
+  <meta property="og:title" content="kuholi lounge — home" />
+  <meta property="og:description" content="Whiskey, Wellness & Wholeness." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/" />
+  <meta property="og:image" content="https://your-domain.com/assets/og-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="kuholi lounge — home" />
+  <meta name="twitter:description" content="Whiskey, Wellness & Wholeness." />
+  <meta name="twitter:image" content="https://your-domain.com/assets/og-hero.jpg" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <script defer src="/assets/script.js"></script>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="container nav-container">
-    <a href="index.html" class="brand">
-      <img src="Kuholi.png" alt="KuHoLi logo" class="logo-img" />
-      <span class="brand-name">kuholi lounge</span>
-    </a>
-    <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
-    <nav id="primary-nav" class="nav-links" aria-label="Primary">
-      <a class="nav-link" href="index.html" aria-current="page">Home</a>
-      <a class="nav-link" href="concept.html">Concept</a>
-      <a class="nav-link" href="lounge.html">Lounge</a>
-      <a class="nav-link" href="brand.html">Brand</a>
-      <a class="nav-link" href="strategy.html">Strategy</a>
-      <a class="nav-link" href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section class="banner" aria-label="Quick links">
-  <div class="container banner-inner">
-    <img src="Kuholi.png" alt="" class="banner-logo" aria-hidden="true" />
-    <div class="banner-rotator" id="quick-rotator">
-      <a class="rotator-item is-active" href="concept.html">Explore the Concept →</a>
-      <a class="rotator-item" href="lounge.html">See the Lounge →</a>
-      <a class="rotator-item" href="brand.html">Brand & Palette →</a>
-      <a class="rotator-item" href="strategy.html">Strategy & Insights →</a>
-      <a class="rotator-item" href="contact.html">Contact / Visit →</a>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="/assets/Kuholi.png" alt="KuHoLi logo" class="logo-img" width="72" height="72" loading="eager" decoding="async" />
+        <span class="brand-name">kuholi lounge</span>
+      </a>
+      <nav class="nav-ribbon" aria-label="Primary">
+        <button id="navArrowLeft" class="nav-arrow" aria-label="Scroll menu left" hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 19L8 12l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-track" tabindex="0">
+          <a class="nav-pill" href="index.html" aria-current="page">Home</a>
+          <a class="nav-pill" href="concept.html">Concept</a>
+          <a class="nav-pill" href="lounge.html">Lounge</a>
+          <a class="nav-pill" href="brand.html">Brand</a>
+          <a class="nav-pill" href="strategy.html">Strategy</a>
+          <a class="nav-pill" href="services.html">Services</a>
+          <a class="nav-pill" href="about.html">About</a>
+          <a class="nav-pill" href="contact.html">Contact</a>
+        </div>
+        <button id="navArrowRight" class="nav-arrow" aria-label="Scroll menu right" hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span id="navInk" class="nav-ink" aria-hidden="true"></span>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<main>
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1 class="title fade-in">kuholi lounge</h1>
-      <p class="tagline fade-in delay-1">Whiskey, Wellness & Wholeness.</p>
-      <p class="subtitle fade-in delay-2">
-        A modern, earthy sanctuary for young professionals — artisanal coffee, curated whiskey, holistic therapies, and premium lifestyle retail in a sophisticated, Instagram‑worthy space.
-      </p>
-      <div class="hero-ctas fade-in delay-3">
-        <a class="btn-primary" href="concept.html">Explore concept</a>
-        <a class="btn-secondary" href="lounge.html">Explore lounge</a>
-        <a class="btn-secondary" href="contact.html">Visit / enquire</a>
+  <section class="banner" aria-label="Quick links">
+    <div class="container banner-inner">
+      <img src="/assets/Kuholi.png" alt="" class="banner-logo" width="28" height="28" decoding="async" loading="lazy" />
+      <div class="banner-rotator" id="quick-rotator">
+        <a class="rotator-item" href="concept.html">Explore the Concept →</a>
+        <a class="rotator-item" href="lounge.html">See the Lounge →</a>
+        <a class="rotator-item" href="brand.html">Brand & Palette →</a>
+        <a class="rotator-item" href="strategy.html">Strategy & Insights →</a>
+        <a class="rotator-item" href="contact.html">Contact / Visit →</a>
       </div>
     </div>
   </section>
 
-  <!-- Highlights -->
-  <section class="section section-neutral">
-    <div class="container grid-3">
-      <div class="card soft fade-in delay-1">
-        <h3>artisanal coffee</h3>
-        <p>Single‑origin pours, slow brew rituals, signature wellness lattés.</p>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1 class="title fade-in">kuholi lounge</h1>
+        <p class="tagline fade-in delay-1">Whiskey, Wellness & Wholeness.</p>
+        <p class="subtitle fade-in delay-2">
+          A modern, earthy sanctuary for young professionals — artisanal coffee, curated whiskey,
+          holistic therapies, and premium lifestyle retail in a sophisticated, Instagram‑worthy space.
+        </p>
+        <div class="hero-ctas fade-in delay-3">
+          <a class="btn-primary" href="concept.html">Explore concept</a>
+          <a class="btn-secondary" href="lounge.html">Explore lounge</a>
+          <a class="btn-secondary" href="contact.html">Visit / enquire</a>
+        </div>
       </div>
-      <div class="card soft fade-in delay-2">
-        <h3>curated whiskey</h3>
-        <p>Thoughtful flights, pairings, and lounge service.</p>
+    </section>
+
+    <!-- Highlights -->
+    <section class="section section-neutral">
+      <div class="container grid-3">
+        <article class="card soft fade-in delay-1">
+          <h3>artisanal coffee</h3>
+          <p>Single‑origin pours, slow brew rituals, signature wellness lattés.</p>
+        </article>
+        <article class="card soft fade-in delay-2">
+          <h3>curated whiskey</h3>
+          <p>Thoughtful flights, pairings, and lounge service.</p>
+        </article>
+        <article class="card soft fade-in delay-3">
+          <h3>holistic therapies</h3>
+          <p>Bodywork, breathwork, sound baths, and herbal rituals.</p>
+        </article>
       </div>
-      <div class="card soft fade-in delay-3">
-        <h3>holistic therapies</h3>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> kuholi lounge</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
+``

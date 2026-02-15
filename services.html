@@ -1,63 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Services – OmniAssist</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <meta charset="utf-8" />
+  <title>kuholi lounge — services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Experiences & services at KuHoLi — artisanal coffee rituals, curated whiskey, holistic therapies, culinary nights, and lifestyle retail." />
+  <link rel="icon" href="/assets/Kuholi.png" type="image/png" />
+  <meta name="theme-color" content="#111314" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://your-domain.com/services.html" />
+  <meta property="og:title" content="kuholi lounge — services" />
+  <meta property="og:description" content="Rituals, tastings, therapies & curated experiences." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/services.html" />
+  <meta property="og:image" content="https://your-domain.com/assets/og-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="kuholi lounge — services" />
+  <meta name="twitter:description" content="Rituals, tastings, therapies & curated experiences." />
+  <meta name="twitter:image" content="https://your-domain.com/assets/og-hero.jpg" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <script defer src="/assets/script.js"></script>
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="/assets/Kuholi.png" alt="KuHoLi logo" class="logo-img" width="72" height="72" />
+        <span class="brand-name">kuholi lounge</span>
+      </a>
+      <nav class="nav-ribbon" aria-label="Primary">
+        <button id="navArrowLeft" class="nav-arrow" aria-label="Scroll menu left" hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 19L8 12l7-7" stroke="currentColor"/></svg>
+        </button>
+        <div class="nav-track" tabindex="0">
+          <a class="nav-pill" href="index.html">Home</a>
+          <a class="nav-pill" href="concept.html">Concept</a>
+          <a class="nav-pill" href="lounge.html">Lounge</a>
+          <a class="nav-pill" href="brand.html">Brand</a>
+          <a class="nav-pill" href="strategy.html">Strategy</a>
+          <a class="nav-pill" href="services.html" aria-current="page">Services</a>
+          <a class="nav-pill" href="about.html">About</a>
+          <a class="nav-pill" href="contact.html">Contact</a>
+        </div>
+        <button id="navArrowRight" class="nav-arrow" aria-label="Scroll menu right" hidden>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor"/></svg>
+        </button>
+        <span id="navInk" class="nav-ink" aria-hidden="true"></span>
+      </nav>
+    </div>
+  </header>
 
-<header class="site-header">
-  <div class="container nav-container">
-    <a href="index.html" class="brand">
-      <img src="logo.png" class="logo">
-      <span class="brand-name">OmniAssist</span>
-    </a>
+  <section class="banner" aria-label="Quick links">
+    <div class="container banner-inner">
+      <img src="/assets/Kuholi.png" alt="" class="banner-logo" width="28" height="28" />
+      <div class="banner-rotator" id="quick-rotator">
+        <a class="rotator-item" href="concept.html">Explore the Concept →</a>
+        <a class="rotator-item" href="lounge.html">See the Lounge →</a>
+        <a class="rotator-item" href="brand.html">Brand & Palette →</a>
+        <a class="rotator-item" href="strategy.html">Strategy & Insights →</a>
+        <a class="rotator-item" href="contact.html">Contact / Visit →</a>
+      </div>
+    </div>
+  </section>
 
-    <button class="nav-toggle" id="navToggle">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
+  <main>
+    <section class="section fade-in">
+      <div class="container">
+        <h1 class="title fade-in delay-1">services</h1>
+        <p class="subtitle fade-in delay-2">Rituals, tastings, therapies and curated lifestyle experiences.</p>
+      </div>
+    </section>
 
-    <nav class="nav-links" id="primary-nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="services.html" class="nav-link active">Services</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section class="page-hero">
-  <div class="container">
-    <h1>Our <span class="accent">Services</span></h1>
-  </div>
-</section>
-
-<main class="container grid-3">
-  <article class="card service">
-    <h3>AI‑Powered Assistance</h3>
-    <p>Smart guidance and task automation built right into your workflow.</p>
-  </article>
-
-  <article class="card service">
-    <h3>Workflow Automation</h3>
-    <p>Reduce busywork with automated triggers, routines, and integrations.</p>
-  </article>
-
-  <article class="card service">
-    <h3>Integrations</h3>
-    <p>Connect your tools with simple API‑driven linkups across your systems.</p>
-  </article>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 OmniAssist</p>
-  </div>
-</footer>
-
-</body>
-</html>
+    <section class="section section-neutral">
+      <div class="container grid-3">
+        <article class="card soft fade-in delay-1">
+          <h3>artisanal coffee rituals</h3>
+          <p class="muted">Single‑origin pours, slow brew rituals, signature wellness lattés.</p>
+        </article>
+        <article class="card soft fade-in delay-2">
+          <h3>curated whiskey</h3>
+          <p class="muted">Flights & pairings highlighting craftsmanship and regional character.</p>
+        </article>
+        <article class="card soft fade-in delay-3">
+          <h3>holistic therapies</h3>
+          <p class="muted">Bodywork, breathwork, sound baths, and herbal rituals; bookable sessions.</p>
+        </article>
+        <article class="card fade-in delay-1">
+          <h3>culinary nights</h3>
+          <p class="muted">Minimalist menus & themed events with local hospitality talent.</p>
+        </article>
+        <article class="card fade-in delay-2">
+          <h3>retail & lifestyle</h3>
+          <p class="muted">Earthy home goods, apothecary, glassware, and wellness essentials.</p>
+        </article>
+        <article class="card fade-in delay-3">
+          <h3>cannabis‑infused edibles</h3>
+          <p class="muted">Offered only where compliant and
