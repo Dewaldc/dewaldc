@@ -2,170 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Your Brand — Vehicle Data Platform</title>
+  <title>kuholi lounge — home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Dark Theme CSS -->
+  <meta name="description" content="kuholi lounge — whiskey, wellness & wholeness. a modern, earthy wellness lounge blending artisanal coffee, curated whiskey, holistic therapies, and premium lifestyle retail." />
   <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
-
 <body>
 
-  <!-- ============ HEADER ============ -->
+  <!-- header -->
   <header class="site-header">
     <div class="container nav-container">
-
-      <!-- Brand + Logo -->
-      <a href="index.html" class="brand">
-        <img src="logo.png" alt="Logo" class="logo" />
-        <span class="brand-name">Your Brand</span>
-      </a>
-
-      <!-- Hamburger (always visible) -->
+      <a href="index.html" class="brand"><span class="brand-name">kuholi lounge</span></a>
       <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-
-      <!-- Drawer Navigation (Search removed) -->
       <nav id="primary-nav" class="nav-links" aria-label="Primary">
-        <a class="nav-link" href="#hero">Home</a>
-        <a class="nav-link" href="#features">Features</a>
-        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="concept.html">Concept</a>
+        <a class="nav-link" href="lounge.html">Lounge</a>
+        <a class="nav-link" href="brand.html">Brand</a>
+        <a class="nav-link" href="contact.html">Contact</a>
       </nav>
-
     </div>
   </header>
 
-
-
-  <!-- ============ HERO ============ -->
-  <section id="hero" class="hero">
-    <div class="container hero-inner">
-      <h1 class="title">Automotive Data, Simplified.</h1>
-      <p class="subtitle">
-        Explore accurate and up‑to‑date vehicle specifications, engine details, and technical data — all in one place.
-      </p>
-
-      <div class="hero-ctas">
-        <a href="#features" class="btn-primary">View Features</a>
-        <a href="#contact" class="btn-secondary">Contact Us</a>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- ============ FEATURES ============ -->
-  <section id="features" class="features">
-    <div class="container">
-      <h2 style="text-align:center; margin-bottom:30px;">Why Choose Our Platform?</h2>
-
-      <div class="feature-grid">
-        <div class="feature-card">
-          <h3>✔ Accurate Data</h3>
-          <p>Verified vehicle specs from trusted automotive sources.</p>
-        </div>
-
-        <div class="feature-card">
-          <h3>✔ Easy Interface</h3>
-          <p>Clean design that helps you find information fast.</p>
-        </div>
-
-        <div class="feature-card">
-          <h3>✔ Consistently Updated</h3>
-          <p>Up‑to‑date technical data across all vehicles.</p>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1 class="title">kuholi lounge</h1>
+        <p class="tagline">Whiskey, Wellness &amp; Wholeness.</p>
+        <p class="subtitle">
+          A modern, earthy sanctuary for young professionals — artisanal coffee, curated whiskey, holistic therapies, and premium lifestyle retail in a sophisticated, Instagram‑worthy space.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="concept.html">Explore concept</a>
+          <a class="btn-secondary" href="lounge.html">Explore lounge</a>
+          <a class="btn-secondary" href="contact.html">Visit / enquire</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-
-  <!-- ============ CONTACT ============ -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent (demo).');">
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" placeholder="Your Name" />
+    <!-- Highlights -->
+    <section class="section section-neutral">
+      <div class="container grid-3">
+        <div class="card soft">
+          <h3>artisanal coffee</h3>
+          <p>Single‑origin pours, slow brew rituals, signature wellness lattés.</p>
         </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" placeholder="you@example.com" />
+        <div class="card soft">
+          <h3>curated whiskey</h3>
+          <p>Thoughtful flights, pairings, and lounge service.</p>
         </div>
-
-        <div class="field field--full">
-          <label for="msg">Message</label>
-          <textarea id="msg" rows="4" placeholder="How can we help?"></textarea>
+        <div class="card soft">
+          <h3>holistic therapies</h3>
+          <p>Mindful bodywork, sound baths, breathwork, herbal rituals.</p>
         </div>
+      </div>
+    </section>
+  </main>
 
-        <div class="field field--full">
-          <button class="btn-primary" type="submit">Send Message</button>
-        </div>
-      </form>
-    </div>
-  </section>
-
-
-
-  <!-- ============ FOOTER ============ -->
+  <!-- footer -->
   <footer class="site-footer">
     <div class="container">
-      © <span id="year"></span> Your Brand. All rights reserved.
+      <div>© <span id="year"></span> kuholi lounge. All rights reserved.</div>
+      <div class="footer-powered">Powered by OmniAssist — bringing you the KuHoLi experience.</div>
     </div>
   </footer>
 
-
-
-  <!-- ============ JS ============ -->
-  <script>
-    // Hamburger toggle (always on)
-    const navToggle = document.getElementById("navToggle");
-    const primaryNav = document.getElementById("primary-nav");
-
-    if (navToggle && primaryNav) {
-      navToggle.addEventListener("click", () => {
-        const isOpen = primaryNav.classList.toggle("open");
-        navToggle.setAttribute("aria-expanded", String(isOpen));
-        document.body.classList.toggle("no-scroll", isOpen);
-      });
-
-      // Close on ESC
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && primaryNav.classList.contains("open")) {
-          primaryNav.classList.remove("open");
-          navToggle.setAttribute("aria-expanded", "false");
-          document.body.classList.remove("no-scroll");
-        }
-      });
-
-      // Close after clicking a nav link
-      primaryNav.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          primaryNav.classList.remove("open");
-          navToggle.setAttribute("aria-expanded", "false");
-          document.body.classList.remove("no-scroll");
-        });
-      });
-    }
-
-    // Smooth scrolling for in‑page anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener("click", e => {
-        const target = document.querySelector(a.getAttribute("href"));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: "smooth" });
-        }
-      });
-    });
-
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
