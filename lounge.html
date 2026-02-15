@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>kuholi lounge — lounge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="artisanal coffee, curated whiskey, holistic therapies, cannabis edibles (where compliant), retail, culinary nights — kuholi lounge offerings." />
+  <meta name="description" content="artisanal coffee, curated whiskey, holistic therapies, cannabis edibles, retail and culinary nights — kuholi lounge offerings." />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
@@ -14,7 +14,7 @@
 <header class="site-header">
   <div class="container nav-container">
     <a href="index.html" class="brand">
-      <img src="Kuholi.png" alt="KuHoLi logo" class="logo-img" />
+      <img src="Kuholi.png" alt="KuHoLi logo" class="logo-img">
       <span class="brand-name">kuholi lounge</span>
     </a>
 
@@ -25,7 +25,7 @@
     <nav id="primary-nav" class="nav-links" aria-label="Primary">
       <a class="nav-link" href="index.html">Home</a>
       <a class="nav-link" href="concept.html">Concept</a>
-      <a class="nav-link" href="lounge.html">Lounge</a>
+      <a class="nav-link active" href="lounge.html">Lounge</a>
       <a class="nav-link" href="brand.html">Brand</a>
       <a class="nav-link" href="strategy.html">Strategy</a>
       <a class="nav-link" href="contact.html">Contact</a>
@@ -34,41 +34,52 @@
 </header>
 
 <main>
-  <section class="section">
+
+  <!-- Header Section -->
+  <section class="section fade-in">
     <div class="container">
-      <h1 class="title">the lounge</h1>
-      <p class="subtitle">A curated blend of ritual, taste, and calm — designed for slow moments and meaningful connection.</p>
+      <h1 class="title fade-in delay-1">the lounge</h1>
+      <p class="subtitle fade-in delay-2">A curated blend of ritual, taste, and calm — designed for slow moments and meaningful connection.</p>
     </div>
   </section>
 
+  <!-- Feature Grid -->
   <section class="section section-neutral">
     <div class="container grid-3">
-      <div class="card soft">
+
+      <div class="card soft fade-in delay-1">
         <h3>artisanal coffee</h3>
         <p>Single‑origin, slow pours, and wellness lattés with functional botanicals.</p>
       </div>
-      <div class="card soft">
+
+      <div class="card soft fade-in delay-2">
         <h3>curated whiskey</h3>
         <p>Flights and pairings that highlight regional character and craftsmanship.</p>
       </div>
-      <div class="card soft">
+
+      <div class="card soft fade-in delay-3">
         <h3>holistic therapies</h3>
         <p>Bodywork, breathwork, sound baths, herbal rituals; bookable sessions.</p>
       </div>
-      <div class="card">
+
+      <div class="card fade-in delay-1">
         <h3>cannabis‑infused edibles</h3>
         <p>Measured, premium edibles (offered where compliant and appropriate).</p>
       </div>
-      <div class="card">
+
+      <div class="card fade-in delay-2">
         <h3>retail & lifestyle</h3>
         <p>Earthy home goods, apothecary, glassware, and wellness essentials.</p>
       </div>
-      <div class="card">
+
+      <div class="card fade-in delay-3">
         <h3>culinary nights</h3>
         <p>Minimalist menus and themed events with local hospitality talent.</p>
       </div>
+
     </div>
   </section>
+
 </main>
 
 <!-- footer -->
@@ -79,6 +90,9 @@
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
