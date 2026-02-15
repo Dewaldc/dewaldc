@@ -1,155 +1,101 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <title>kuholi lounge — contact / visit</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — OmniAssist</title>
 
-    <!-- SEO Description -->
-    <meta name="description"
-          content="Get in touch with kuholi lounge — enquiries, collaboration requests, and visit information for our flagship wellness and lifestyle space." />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/Kuholi.png">
+  <meta name="theme-color" content="#0a0a0a">
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://omniassist.co.za/contact.html" />
-
-    <!-- Favicon -->
-    <link rel="icon" href="/assets/Kuholi.png" type="image/png" />
-
-    <!-- UI Theme -->
-    <meta name="theme-color" content="#111314" />
-    <meta name="color-scheme" content="dark" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="kuholi lounge — contact / visit" />
-    <meta property="og:description"
-          content="Reach out to the kuholi team — enquiries, collaborations, partnerships, and visit details." />
-    <meta property="og:url" content="https://omniassist.co.za/contact.html" />
-    <meta property="og:image" content="https://omniassist.co.za/assets/og-hero.jpg" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="kuholi lounge — contact / visit" />
-    <meta name="twitter:description"
-          content="Send us a note — the kuholi team will be in touch." />
-    <meta name="twitter:image" content="https://omniassist.co.za/assets/og-hero.jpg" />
-
-    <!-- Styles & Scripts -->
-    <link rel="stylesheet" href="/assets/styles.css" />
-    <script defer src="/assets/script.js"></script>
+  <!-- Global CSS + JS -->
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/script.js" defer></script>
 </head>
 
 <body>
 
-<header class="site-header">
-    <div class="container nav-container">
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <div class="container navbar">
 
-        <a href="index.html" class="brand">
-            <picture>
-                <source srcset="/assets/Kuholi.webp" type="image/webp" />
-                <img src="/assets/Kuholi.png" alt="KuHoLi logo" class="logo-img"
-                     width="72" height="72" loading="eager" decoding="async" />
-            </picture>
-            <span class="brand-name">kuholi lounge</span>
-        </a>
+      <a href="/index.html" class="brand">
+        <img src="assets/Kuholi.png" alt="OmniAssist Logo">
+        <span>OmniAssist</span>
+      </a>
 
-        <nav class="nav-ribbon" aria-label="Primary">
+      <button class="nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+        Menu
+      </button>
 
-            <button id="navArrowLeft" class="nav-arrow" aria-label="Scroll menu left" hidden>
-                <svg viewBox="0 0 24 24"><path d="M15 19L8 12l7-7" /></svg>
-            </button>
-
-            <div class="nav-track" tabindex="0">
-                <a class="nav-pill" href="index.html">Home</a>
-                <a class="nav-pill" href="concept.html">Concept</a>
-                <a class="nav-pill" href="lounge.html">Lounge</a>
-                <a class="nav-pill" href="brand.html">Brand</a>
-                <a class="nav-pill" href="strategy.html">Strategy</a>
-                <a class="nav-pill" href="services.html">Services</a>
-
-                <!-- ⭐ Blog link added here -->
-                <a class="nav-pill" href="blog/index.html">Blog</a>
-
-                <a class="nav-pill" href="about.html">About</a>
-                <a class="nav-pill" href="contact.html" aria-current="page">Contact</a>
-            </div>
-
-            <button id="navArrowRight" class="nav-arrow" aria-label="Scroll menu right" hidden>
-                <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
-            </button>
-
-            <span id="navInk" class="nav-ink" aria-hidden="true"></span>
-
-        </nav>
+      <nav class="nav-links" data-nav-menu>
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/brand.html">Brand</a>
+        <a href="/strategy.html">Strategy</a>
+        <a href="/lounge.html">Lounge</a>
+        <a href="/concept.html">Concept</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/contact.html" aria-current="page">Contact</a>
+      </nav>
 
     </div>
-</header>
+  </header>
 
-<section class="banner" aria-label="Quick links">
-    <div class="container banner-inner">
-        <picture>
-            <source srcset="/assets/Kuholi.webp" type="image/webp" />
-            <img src="/assets/Kuholi.png" alt="" class="banner-logo"
-                 width="28" height="28" loading="lazy" decoding="async" />
-        </picture>
-
-        <div class="banner-rotator" id="quick-rotator">
-            <a class="rotator-item" href="concept.html">Explore the Concept →</a>
-            <a class="rotator-item" href="lounge.html">See the Lounge →</a>
-            <a class="rotator-item" href="brand.html">Brand & Palette →</a>
-            <a class="rotator-item" href="strategy.html">Strategy & Insights →</a>
-            <a class="rotator-item" href="index.html">Back to Home →</a>
-        </div>
-    </div>
-</section>
-
-<main>
-
-<section class="section fade-in">
+  <!-- PAGE CONTENT -->
+  <main class="section">
     <div class="container">
-        <h1 class="title fade-in delay-1">contact / visit</h1>
-        <p class="subtitle fade-in delay-2">
-            We will announce our flagship location soon.  
-            Until then, reach out — the kuholi team will be in touch.
-        </p>
+      <h1>Contact Us</h1>
+      <p class="mono">
+        We'd love to hear from you. Use the form below or reach out directly using the details provided.
+      </p>
 
-        <form class="contact-form fade-in delay-3"
-              onsubmit="event.preventDefault(); alert('Message sent (demo)');">
+      <div style="margin-top: 32px; max-width: 640px;">
 
-            <div class="field">
-                <label for="name">name</label>
-                <input id="name" type="text" placeholder="your name" required />
-            </div>
+        <h2>Send a Message</h2>
+        <form action="#" method="post" style="display: grid; gap: 16px; margin-top: 16px;">
 
-            <div class="field">
-                <label for="email">email</label>
-                <input id="email" type="email" placeholder="you@example.com" required />
-            </div>
+          <label>
+            <span>Name</span><br>
+            <input type="text" name="name" required
+              style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,.18); background:#111; color:#fff;">
+          </label>
 
-            <div class="field field--full">
-                <label for="message">message</label>
-                <textarea id="message" placeholder="how can we help?"
-                          rows="5" required></textarea>
-            </div>
+          <label>
+            <span>Email</span><br>
+            <input type="email" name="email" required
+              style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,.18); background:#111; color:#fff;">
+          </label>
 
-            <div class="actions">
-                <button class="btn-primary" type="submit">send</button>
-            </div>
+          <label>
+            <span>Your Message</span><br>
+            <textarea name="message" rows="5" required
+              style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,.18); background:#111; color:#fff;"></textarea>
+          </label>
 
+          <button class="button" type="submit">Send Message</button>
         </form>
+
+        <h2 style="margin-top: 48px;">Direct Contact</h2>
+        <p>Email: <a href="mailto:support@omniassist.co.za">support@omniassist.co.za</a></p>
+        <p>Phone: <a href="tel:+27000000000">+27 00 000 0000</a></p>
+
+      </div>
     </div>
-</section>
+  </main>
 
-</main>
-
-<footer class="site-footer">
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <div class="container">
-        <div>© <span id="year"></span> kuholi lounge. All rights reserved.</div>
+      <p>© <span id="year"></span> OmniAssist. All rights reserved.</p>
     </div>
-</footer>
+  </footer>
 
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>

@@ -1,145 +1,59 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <title>kuholi lounge — services & experiences</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services — OmniAssist</title>
 
-  <!-- SEO Description -->
-  <meta name="description" content="Explore kuholi lounge services — artisanal coffee rituals, curated whiskey tastings, holistic therapies, culinary nights, lifestyle retail, and compliant cannabis‑infused offerings." />
+  <link rel="icon" type="image/png" href="assets/Kuholi.png">
+  <meta name="theme-color" content="#0a0a0a">
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://omniassist.co.za/services.html" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="/assets/Kuholi.png" type="image/png" />
-
-  <!-- UI Theme -->
-  <meta name="theme-color" content="#111314" />
-  <meta name="color-scheme" content="dark" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="kuholi lounge — services & experiences" />
-  <meta property="og:description" content="Rituals, tastings, therapies, culinary experiences, wellness retail, and more — explore kuholi’s full offering." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://omniassist.co.za/services.html" />
-  <meta property="og:image" content="https://omniassist.co.za/assets/og-hero.jpg" />
-  <meta property="og:site_name" content="kuholi lounge" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="kuholi lounge — services & experiences" />
-  <meta name="twitter:description" content="Coffee rituals, whiskey flights, therapies, culinary nights, lifestyle retail & more." />
-  <meta name="twitter:image" content="https://omniassist.co.za/assets/og-hero.jpg" />
-
-  <!-- Styles & Scripts -->
-  <link rel="stylesheet" href="/assets/styles.css" />
-  <script defer src="/assets/script.js"></script>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/script.js" defer></script>
 </head>
+
 <body>
 
-<header class="site-header">
-  <div class="container nav-container">
-    <a href="index.html" class="brand">
-      <picture>
-        <source srcset="/assets/Kuholi.webp" type="image/webp" />
-        <img src="/assets/Kuholi.png" alt="KuHoLi logo" class="logo-img" width="72" height="72" loading="eager" decoding="async" />
-      </picture>
-      <span class="brand-name">kuholi lounge</span>
-    </a>
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="/index.html" class="brand">
+        <img src="assets/Kuholi.png" alt="OmniAssist Logo">
+        <span>OmniAssist</span>
+      </a>
 
-    <nav class="nav-ribbon" aria-label="Primary">
-      <button id="navArrowLeft" class="nav-arrow" aria-label="Scroll menu left" hidden>
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 19L8 12l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+      <button class="nav-toggle" type="button" data-nav-toggle>Menu</button>
 
-      <div class="nav-track" tabindex="0">
-        <a class="nav-pill" href="index.html">Home</a>
-        <a class="nav-pill" href="concept.html">Concept</a>
-        <a class="nav-pill" href="lounge.html">Lounge</a>
-        <a class="nav-pill" href="brand.html">Brand</a>
-        <a class="nav-pill" href="strategy.html">Strategy</a>
-        <a class="nav-pill" href="services.html" aria-current="page">Services</a>
-        <a class="nav-pill" href="blog/index.html">Blog</a>
-        <a class="nav-pill" href="about.html">About</a>
-        <a class="nav-pill" href="contact.html">Contact</a>
-      </div>
-
-      <button id="navArrowRight" class="nav-arrow" aria-label="Scroll menu right" hidden>
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-
-      <span id="navInk" class="nav-ink" aria-hidden="true"></span>
-    </nav>
-  </div>
-</header>
-
-<section class="banner" aria-label="Quick links">
-  <div class="container banner-inner">
-    <picture>
-      <source srcset="/assets/Kuholi.webp" type="image/webp" />
-      <img src="/assets/Kuholi.png" alt="" class="banner-logo" width="28" height="28" loading="lazy" decoding="async" />
-    </picture>
-
-    <div class="banner-rotator" id="quick-rotator">
-      <a class="rotator-item" href="concept.html">Explore the Concept →</a>
-      <a class="rotator-item" href="lounge.html">See the Lounge →</a>
-      <a class="rotator-item" href="brand.html">Brand & Palette →</a>
-      <a class="rotator-item" href="strategy.html">Strategy & Insights →</a>
-      <a class="rotator-item" href="contact.html">Contact / Visit →</a>
+      <nav class="nav-links" data-nav-menu>
+        <a href="/about.html">About</a>
+        <a href="/services.html" aria-current="page">Services</a>
+        <a href="/brand.html">Brand</a>
+        <a href="/strategy.html">Strategy</a>
+        <a href="/lounge.html">Lounge</a>
+        <a href="/concept.html">Concept</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<main>
-  <section class="section fade-in">
+  <main class="section">
     <div class="container">
-      <h1 class="title fade-in delay-1">services</h1>
-      <p class="subtitle fade-in delay-2">Rituals, tastings, therapies and curated lifestyle experiences.</p>
+      <h1>Our Services</h1>
+      <p class="mono">Describe your services here.</p>
     </div>
-  </section>
+  </main>
 
-  <section class="section section-neutral">
-    <div class="container grid-3">
-      <article class="card soft fade-in delay-1">
-        <h3>artisanal coffee rituals</h3>
-        <p class="muted">Single‑origin pours, slow brew rituals, and signature wellness lattés.</p>
-      </article>
-
-      <article class="card soft fade-in delay-2">
-        <h3>curated whiskey</h3>
-        <p class="muted">Flights & pairings that highlight craftsmanship, terroir, and regional character.</p>
-      </article>
-
-      <article class="card soft fade-in delay-3">
-        <h3>holistic therapies</h3>
-        <p class="muted">Bodywork, breathwork, sound baths, and herbal rituals — bookable sessions.</p>
-      </article>
-
-      <article class="card fade-in delay-1">
-        <h3>culinary nights</h3>
-        <p class="muted">Minimalist menus and themed evenings curated with local hospitality talent.</p>
-      </article>
-
-      <article class="card fade-in delay-2">
-        <h3>retail & lifestyle</h3>
-        <p class="muted">Earthy home goods, apothecary items, artisanal glassware, and wellness essentials.</p>
-      </article>
-
-      <article class="card fade-in delay-3">
-        <h3>cannabis‑infused edibles</h3>
-        <p class="muted">Premium, measured micro‑dose edibles — offered only where legally compliant.</p>
-      </article>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> OmniAssist. All rights reserved.</p>
     </div>
-  </section>
-</main>
+  </footer>
 
-<footer class="site-footer">
-  <div class="container">
-    <div>© <span id="year"></span> kuholi lounge. All rights reserved.</div>
-  </div>
-</footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

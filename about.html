@@ -1,150 +1,61 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <title>kuholi lounge — about</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — OmniAssist</title>
 
-  <!-- SEO Description -->
-  <meta name="description" content="Learn about HoKuLi — a modern, luxurious wellness lounge blending artisanal coffee, curated whiskey, holistic healing, and lifestyle experiences for young professionals." />
+  <link rel="icon" type="image/png" href="assets/Kuholi.png">
+  <meta name="theme-color" content="#0a0a0a">
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://omniassist.co.za/about.html" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="/assets/Kuholi.png" type="image/png" />
-
-  <!-- UI Theme -->
-  <meta name="theme-color" content="#111314" />
-  <meta name="color-scheme" content="dark" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="kuholi lounge — about" />
-  <meta property="og:description" content="HoKuLi blends coffee culture, holistic healing, premium spirits, and lifestyle offerings in a refined, earthy, Instagram‑worthy sanctuary." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://omniassist.co.za/about.html" />
-  <meta property="og:image" content="https://omniassist.co.za/assets/og-hero.jpg" />
-  <meta property="og:site_name" content="kuholi lounge" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="kuholi lounge — about" />
-  <meta name="twitter:description" content="Modern, luxurious, earthy — discover the philosophy and vision behind HoKuLi." />
-  <meta name="twitter:image" content="https://omniassist.co.za/assets/og-hero.jpg" />
-
-  <!-- Styles & Scripts -->
-  <link rel="stylesheet" href="/assets/styles.css" />
-  <script defer src="/assets/script.js"></script>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/script.js" defer></script>
 </head>
+
 <body>
 
-<header class="site-header">
-  <div class="container nav-container">
-    <a href="index.html" class="brand">
-      <picture>
-        <source srcset="/assets/Kuholi.webp" type="image/webp" />
-        <img src="/assets/Kuholi.png" alt="KuHoLi logo" class="logo-img" width="72" height="72" loading="eager" decoding="async" />
-      </picture>
-      <span class="brand-name">kuholi lounge</span>
-    </a>
+  <!-- NAVIGATION (same on all pages) -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="/index.html" class="brand">
+        <img src="assets/Kuholi.png" alt="OmniAssist Logo">
+        <span>OmniAssist</span>
+      </a>
 
-    <nav class="nav-ribbon" aria-label="Primary">
-      <button id="navArrowLeft" class="nav-arrow" aria-label="Scroll menu left" hidden>
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 19L8 12l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false">Menu</button>
 
-      <div class="nav-track" tabindex="0">
-        <a class="nav-pill" href="index.html">Home</a>
-        <a class="nav-pill" href="concept.html">Concept</a>
-        <a class="nav-pill" href="lounge.html">Lounge</a>
-        <a class="nav-pill" href="brand.html">Brand</a>
-        <a class="nav-pill" href="strategy.html">Strategy</a>
-        <a class="nav-pill" href="services.html">Services</a>
-        <a class="nav-pill" href="blog/index.html">Blog</a>
-        <a class="nav-pill" href="about.html" aria-current="page">About</a>
-        <a class="nav-pill" href="contact.html">Contact</a>
-      </div>
-
-      <button id="navArrowRight" class="nav-arrow" aria-label="Scroll menu right" hidden>
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-
-      <span id="navInk" class="nav-ink" aria-hidden="true"></span>
-    </nav>
-  </div>
-</header>
-
-<section class="banner" aria-label="Quick links">
-  <div class="container banner-inner">
-    <div class="banner-rotator" id="quick-rotator">
-      <a class="rotator-item" href="concept.html">Explore the Concept →</a>
-      <a class="rotator-item" href="lounge.html">See the Lounge →</a>
-      <a class="rotator-item" href="brand.html">Brand & Palette →</a>
-      <a class="rotator-item" href="strategy.html">Strategy & Insights →</a>
-      <a class="rotator-item" href="contact.html">Contact / Visit →</a>
+      <nav class="nav-links" data-nav-menu>
+        <a href="/about.html" aria-current="page">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/brand.html">Brand</a>
+        <a href="/strategy.html">Strategy</a>
+        <a href="/lounge.html">Lounge</a>
+        <a href="/concept.html">Concept</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<main>
-  <!-- ABOUT HEADER -->
-  <section class="section fade-in">
+  <!-- CONTENT -->
+  <main class="section">
     <div class="container">
-      <h1 class="title fade-in delay-1">about</h1>
-      <p class="subtitle fade-in delay-2">
-        HoKuLi is a modern, luxurious, and earthy wellness lounge blending bistro coffee culture, holistic healing,
-        curated whiskey, and premium lifestyle offerings — crafted for the modern professional.
-      </p>
+      <h1>About Us</h1>
+      <p class="mono">This is where your About page content goes.</p>
     </div>
-  </section>
+  </main>
 
-  <!-- ABOUT BODY -->
-  <section class="section section-neutral">
-    <div class="container grid-1">
-
-      <article class="card soft fade-in delay-1">
-        <h3>who we are</h3>
-        <p class="muted">
-          HoKuLi brings together artisanal coffee, curated whiskey selections, holistic therapies,
-          and cannabis‑infused edibles — all within a sophisticated, Instagram‑worthy environment.
-          It is a space where ritual meets relaxation, luxury meets grounding, and community thrives.
-        </p>
-      </article>
-
-      <article class="card soft fade-in delay-2">
-        <h3>mission</h3>
-        <p class="muted">
-          To create a sanctuary where wellness meets indulgence, fostering mindful living and
-          meaningful connections through exceptional guest experiences.
-        </p>
-      </article>
-
-      <article class="card soft fade-in delay-3">
-        <h3>vision</h3>
-        <p class="muted">
-          To become a leading lifestyle brand that redefines social and wellness spaces through
-          a harmonious blend of luxury, sustainability, and sensory-driven design.
-        </p>
-      </article>
-
-      <article class="card soft fade-in delay-4">
-        <h3>unique value proposition</h3>
-        <p class="muted">
-          Unlike traditional cafés or spas, HoKuLi unifies coffee culture, holistic healing, and premium spirits
-          under one roof — offering an immersive, elevated, and modern lifestyle experience for young professionals.
-        </p>
-      </article>
-
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> OmniAssist. All rights reserved.</p>
     </div>
-  </section>
-</main>
+  </footer>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© <span id="year"></span> kuholi lounge</p>
-  </div>
-</footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
