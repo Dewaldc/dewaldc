@@ -9,21 +9,20 @@
     <meta name="description"
           content="Get in touch with kuholi lounge — enquiries, collaboration requests, and visit information for our flagship wellness and lifestyle space." />
 
+    <!-- Canonical -->
+    <link rel="canonical" href="https://omniassist.co.za/contact.html" />
+
     <!-- Favicon -->
-    /assets/Kuholi.png
+    <link rel="icon" href="/assets/Kuholi.png" type="image/png" />
 
     <!-- UI Theme -->
     <meta name="theme-color" content="#111314" />
     <meta name="color-scheme" content="dark" />
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://omniassist.co.za/contact.html" />
-
     <!-- Open Graph -->
     <meta property="og:title" content="kuholi lounge — contact / visit" />
     <meta property="og:description"
           content="Reach out to the kuholi team — enquiries, collaborations, partnerships, and visit details." />
-    <meta property="og:type" content="website" />
     <meta property="og:url" content="https://omniassist.co.za/contact.html" />
     <meta property="og:image" content="https://omniassist.co.za/assets/og-hero.jpg" />
 
@@ -35,60 +34,70 @@
     <meta name="twitter:image" content="https://omniassist.co.za/assets/og-hero.jpg" />
 
     <!-- Styles & Scripts -->
-    /assets/styles.css
-    /assets/script.jsscript>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script defer src="/assets/script.js"></script>
 </head>
 
 <body>
 
 <header class="site-header">
     <div class="container nav-container">
-        index.html
+
+        <a href="index.html" class="brand">
             <picture>
-                /assets/Kuholi.webp
-                /assets/Kuholi.png
+                <source srcset="/assets/Kuholi.webp" type="image/webp" />
+                <img src="/assets/Kuholi.png" alt="KuHoLi logo" class="logo-img"
+                     width="72" height="72" loading="eager" decoding="async" />
             </picture>
             <span class="brand-name">kuholi lounge</span>
         </a>
 
         <nav class="nav-ribbon" aria-label="Primary">
+
             <button id="navArrowLeft" class="nav-arrow" aria-label="Scroll menu left" hidden>
-                <svg viewBox="0 0 24 24"><path d="M15 19L8 12l7-7"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M15 19L8 12l7-7" /></svg>
             </button>
 
             <div class="nav-track" tabindex="0">
-                index.htmlHome</a>
-                concept.htmlConcept</a>
-                lounge.htmlLounge</a>
-                brand.htmlBrand</a>
-                strategy.htmlStrategy</a>
-                services.htmlServices</a>
-                about.htmlAbout</a>
-                contact.htmlContact</a>
+                <a class="nav-pill" href="index.html">Home</a>
+                <a class="nav-pill" href="concept.html">Concept</a>
+                <a class="nav-pill" href="lounge.html">Lounge</a>
+                <a class="nav-pill" href="brand.html">Brand</a>
+                <a class="nav-pill" href="strategy.html">Strategy</a>
+                <a class="nav-pill" href="services.html">Services</a>
+
+                <!-- ⭐ Blog link added here -->
+                <a class="nav-pill" href="blog/index.html">Blog</a>
+
+                <a class="nav-pill" href="about.html">About</a>
+                <a class="nav-pill" href="contact.html" aria-current="page">Contact</a>
             </div>
 
             <button id="navArrowRight" class="nav-arrow" aria-label="Scroll menu right" hidden>
-                <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
             </button>
 
-            <span id="navInk" class="nav-ink"></span>
+            <span id="navInk" class="nav-ink" aria-hidden="true"></span>
+
         </nav>
+
     </div>
 </header>
 
 <section class="banner" aria-label="Quick links">
     <div class="container banner-inner">
         <picture>
-            /assets/Kuholi.webp
-            /assets/Kuholi.png
+            <source srcset="/assets/Kuholi.webp" type="image/webp" />
+            <img src="/assets/Kuholi.png" alt="" class="banner-logo"
+                 width="28" height="28" loading="lazy" decoding="async" />
         </picture>
 
         <div class="banner-rotator" id="quick-rotator">
-            concept.htmlExplore the Concept →</a>
-            lounge.htmlSee the Lounge →</a>
-            brand.htmlBrand & Palette →</a>
-            strategy.htmlStrategy & Insights →</a>
-            index.htmlBack to Home →</a>
+            <a class="rotator-item" href="concept.html">Explore the Concept →</a>
+            <a class="rotator-item" href="lounge.html">See the Lounge →</a>
+            <a class="rotator-item" href="brand.html">Brand & Palette →</a>
+            <a class="rotator-item" href="strategy.html">Strategy & Insights →</a>
+            <a class="rotator-item" href="index.html">Back to Home →</a>
         </div>
     </div>
 </section>
@@ -118,7 +127,8 @@
 
             <div class="field field--full">
                 <label for="message">message</label>
-                <textarea id="message" placeholder="how can we help?" rows="5" required></textarea>
+                <textarea id="message" placeholder="how can we help?"
+                          rows="5" required></textarea>
             </div>
 
             <div class="actions">
