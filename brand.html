@@ -9,6 +9,9 @@
     <meta name="description"
           content="Explore the brand identity of kuholi lounge — earthy luxury, charcoal and copper palette, modern tone, and a philosophy rooted in ritual, calm, and refined sensory culture." />
 
+    <!-- Canonical -->
+    https://omniassist.co.za/brand.html
+
     <!-- Favicon -->
     /assets/Kuholi.png
 
@@ -16,17 +19,12 @@
     <meta name="theme-color" content="#111314" />
     <meta name="color-scheme" content="dark" />
 
-    <!-- Canonical -->
-    https://omniassist.co.za/brand.html
-
     <!-- Open Graph -->
     <meta property="og:title" content="kuholi lounge — brand identity" />
     <meta property="og:description"
           content="Modern, earthy, luxurious — explore the tonal palette, mood, and visual identity of kuholi lounge." />
-    <meta property="og:type" content="website" />
     <meta property="og:url" content="https://omniassist.co.za/brand.html" />
     <meta property="og:image" content="https://omniassist.co.za/assets/og-hero.jpg" />
-    <meta property="og:site_name" content="kuholi lounge" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -44,6 +42,7 @@
 
 <header class="site-header">
     <div class="container nav-container">
+
         index.html
             <picture>
                 /assets/Kuholi.webp
@@ -54,7 +53,10 @@
 
         <nav class="nav-ribbon" aria-label="Primary">
             <button id="navArrowLeft" class="nav-arrow" aria-label="Scroll menu left" hidden>
-                <svg viewBox="0 0 24 24"><path d="M15 19L8 12l7-7"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M15 19L8 12l7-7" stroke="currentColor" stroke-width="2"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
             </button>
 
             <div class="nav-track" tabindex="0">
@@ -64,16 +66,24 @@
                 brand.htmlBrand</a>
                 strategy.htmlStrategy</a>
                 services.htmlServices</a>
+
+                <!-- ⭐ Added Blog link -->
+                blog/index.htmlBlog</a>
+
                 about.htmlAbout</a>
                 contact.htmlContact</a>
             </div>
 
             <button id="navArrowRight" class="nav-arrow" aria-label="Scroll menu right" hidden>
-                <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
             </button>
 
-            <span id="navInk" class="nav-ink"></span>
+            <span id="navInk" class="nav-ink" aria-hidden="true"></span>
         </nav>
+
     </div>
 </header>
 
@@ -121,14 +131,15 @@
         <div class="card soft fade-in delay-2">
             <h3>palette & mood</h3>
             <ul class="tight">
-                <li><strong>colors:</strong>
+                <li>
+                    <strong>colors:</strong>
                     deep charcoal <code>#111314</code> •
                     copper <code>#B87333</code> •
                     sage <code>#9CAF88</code> •
                     surface <code>#16181A</code>
                 </li>
                 <li><strong>mood:</strong> dark woods, diffused lighting, mineral textures, layered atmosphere</li>
-                <li><strong>vibe:</strong> a balance of whiskey‑bar sophistication and holistic‑spa serenity</li>
+                <li><strong>vibe:</strong> a blend of whiskey‑bar sophistication and holistic‑spa serenity</li>
             </ul>
         </div>
 
