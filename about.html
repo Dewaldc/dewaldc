@@ -1,13 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>kuholi lounge — about</title>
+  <meta name="description" content="About KuHoLi Lounge — our mission and ethos." />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
+
 <header class="site-header">
   <div class="container nav-container">
     <a href="index.html" class="brand">
@@ -30,14 +32,15 @@
   </div>
 </header>
 
-<section class="page-hero">
+<section class="section fade-in">
   <div class="container">
-    <h1>About <span class="accent">Us</span></h1>
+    <h1 class="title fade-in delay-1">about <span class="accent">us</span></h1>
+    <p class="subtitle fade-in delay-2">Our mission and ethos.</p>
   </div>
 </section>
 
 <main class="container">
-  <section class="content card">
+  <section class="content card fade-in delay-1">
     <h2>Our Mission</h2>
     <p>
       KuHoLi brings together wellness and indulgence for mindful living — blending coffee culture, holistic therapies, and premium lounge experiences into one modern, earthy destination.
@@ -50,6 +53,7 @@
     <p>© <span id="year"></span> kuholi lounge</p>
   </div>
 </footer>
+
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

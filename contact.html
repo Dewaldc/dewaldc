@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>kuholi lounge — contact</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="contact kuholi lounge — visit details and enquiry form." />
+  <meta name="description" content="Contact KuHoLi Lounge — visit details and enquiry form." />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
@@ -34,12 +34,12 @@
 </header>
 
 <main>
-  <section class="section">
+  <section class="section fade-in">
     <div class="container">
-      <h1 class="title">contact / visit</h1>
-      <p class="subtitle">We’ll announce our flagship location soon. In the meantime, send us a note — we’ll be in touch.</p>
+      <h1 class="title fade-in delay-1">contact / visit</h1>
+      <p class="subtitle fade-in delay-2">We’ll announce our flagship location soon. In the meantime, send us a note — we’ll be in touch.</p>
 
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent (demo)');">
+      <form class="contact-form fade-in delay-3" onsubmit="event.preventDefault(); alert('Message sent (demo)');">
         <div class="field">
           <label for="name">name</label>
           <input id="name" type="text" placeholder="your name" required />
@@ -70,6 +70,7 @@
     <div class="footer-powered">Powered by OmniAssist — bringing you the KuHoLi experience.</div>
   </div>
 </footer>
+
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
