@@ -5,10 +5,8 @@
   <title>Your Brand — Vehicle Data Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Your site CSS -->
+  <!-- Dark Theme CSS -->
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Navigation + UX JS will run at bottom -->
 </head>
 
 <body>
@@ -16,21 +14,25 @@
   <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="container nav-container">
+
+      <!-- Brand + Logo -->
       <a href="index.html" class="brand">
         <img src="logo.png" alt="Logo" class="logo" />
         <span class="brand-name">Your Brand</span>
       </a>
 
-      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <!-- Hamburger (always visible) -->
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
+      <!-- Drawer Navigation (Search removed) -->
       <nav id="primary-nav" class="nav-links" aria-label="Primary">
         <a class="nav-link" href="#hero">Home</a>
         <a class="nav-link" href="#features">Features</a>
-        <a class="nav-link" href="search.html">Search</a>
         <a class="nav-link" href="#contact">Contact</a>
       </nav>
+
     </div>
   </header>
 
@@ -41,13 +43,12 @@
     <div class="container hero-inner">
       <h1 class="title">Automotive Data, Simplified.</h1>
       <p class="subtitle">
-        Explore accurate and up-to-date vehicle specifications, engine details, and technical data —
-        all in one place.
+        Explore accurate and up‑to‑date vehicle specifications, engine details, and technical data — all in one place.
       </p>
 
       <div class="hero-ctas">
-        <a href="search.html" class="btn-primary">Search Vehicles</a>
-        <a href="#features" class="btn-secondary">Learn More</a>
+        <a href="#features" class="btn-primary">View Features</a>
+        <a href="#contact" class="btn-secondary">Contact Us</a>
       </div>
     </div>
   </section>
@@ -62,25 +63,38 @@
       <div class="feature-grid">
         <div class="feature-card">
           <h3>✔ Accurate Data</h3>
-          <p>Verified vehicle specs from trusted automotive databases.</p>
+          <p>Verified vehicle specs from trusted automotive sources.</p>
         </div>
 
         <div class="feature-card">
-          <h3>✔ Powerful Search</h3>
-          <p>Find vehicles ============ CONTACT ============ -->
+          <h3>✔ Easy Interface</h3>
+          <p>Clean design that helps you find information fast.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>✔ Consistently Updated</h3>
+          <p>Up‑to‑date technical data across all vehicles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ============ CONTACT ============ -->
   <section id="contact" class="contact">
     <div class="container">
-      <h2 style="margin-bottom:20px;">Contact Us</h2>
+      <h2>Contact Us</h2>
 
       <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent (demo).');">
         <div class="field">
           <label for="name">Name</label>
-          <input id="name" placeholder="Your Name">
+          <input id="name" placeholder="Your Name" />
         </div>
 
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" type="email" placeholder="you@example.com">
+          <input id="email" type="email" placeholder="you@example.com" />
         </div>
 
         <div class="field field--full">
@@ -106,16 +120,16 @@
 
 
 
-  <!-- ============ SITE JS ============ -->
+  <!-- ============ JS ============ -->
   <script>
-    // Hamburger toggle
+    // Hamburger toggle (always on)
     const navToggle = document.getElementById("navToggle");
     const primaryNav = document.getElementById("primary-nav");
 
     if (navToggle && primaryNav) {
       navToggle.addEventListener("click", () => {
         const isOpen = primaryNav.classList.toggle("open");
-        navToggle.setAttribute("aria-expanded", isOpen);
+        navToggle.setAttribute("aria-expanded", String(isOpen));
         document.body.classList.toggle("no-scroll", isOpen);
       });
 
@@ -128,7 +142,7 @@
         }
       });
 
-      // Close when clicking nav links
+      // Close after clicking a nav link
       primaryNav.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
           primaryNav.classList.remove("open");
@@ -138,7 +152,7 @@
       });
     }
 
-    // Smooth scrolling
+    // Smooth scrolling for in‑page anchors
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener("click", e => {
         const target = document.querySelector(a.getAttribute("href"));
@@ -149,7 +163,7 @@
       });
     });
 
-    // Footer copyright year
+    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
