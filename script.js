@@ -24,3 +24,31 @@ if (navToggle && primaryNav) {
     });
   });
 }
+
+// ===== Scroll-triggered fade-in (reveal-once) =====
+// Reveals any element with .fade-in when ~15% visible, then unobserves it
+(() => {
+  const revealEls = document.querySelectorAll('.fade-in');
+  if (!revealEls.length) return;
+
+  // Fallback for older browsers: show everything immediately
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    threshold: 0.15,
+    rootMargin: '0px 0px -10% 0px'
+  });
+
+  revealEls.forEach(el => io.observe(el));
+})();
