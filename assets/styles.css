@@ -1,0 +1,93 @@
+/* ===== CSS: kuholi lounge (minimal baseline) ===== */
+:root{
+  --bg:#111314; --surface:#16181A; --text:#E7E9EA; --muted:#A3A7AB;
+  --copper:#B87333; --sage:#9CAF88; --ink:#E7E9EA; --brand:#E7E9EA;
+  --radius:12px; --gap:20px; --max:1140px;
+  --shadow:0 6px 24px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font:400 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif;
+}
+
+/* Layout */
+.container{max-width:var(--max); margin:0 auto; padding:0 20px}
+.section{padding:56px 0}
+.section-neutral{background:var(--surface)}
+.grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:var(--gap)}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--gap)}
+@media (max-width:900px){
+  .grid-3{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+}
+
+/* Header / Ribbon Nav */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(17,19,20,.7);backdrop-filter:saturate(1.2) blur(8px); border-bottom:1px solid #1f2326}
+.nav-container{display:flex; align-items:center; justify-content:space-between; height:64px}
+.brand{display:flex; align-items:center; gap:12px; color:inherit; text-decoration:none}
+.logo-img{width:40px; height:40px}
+.brand-name{text-transform:lowercase; letter-spacing:.5px; font-weight:600}
+
+.nav-ribbon{position:relative; display:flex; align-items:center; gap:8px}
+.nav-track{display:flex; gap:6px; overflow:auto; scrollbar-width:none}
+.nav-track::-webkit-scrollbar{display:none}
+.nav-pill{display:inline-block; padding:8px 14px; border-radius:999px; white-space:nowrap; color:var(--text); text-decoration:none; opacity:.85}
+.nav-pill[aria-current="page"]{background:var(--surface); opacity:1}
+.nav-ink{position:absolute; height:2px; background:var(--ink); bottom:-1px; left:0; width:0; transition:all .25s ease}
+.nav-arrow{border:0; background:transparent; color:var(--text); opacity:.7; cursor:pointer}
+.nav-arrow:disabled{opacity:.3; cursor:not-allowed}
+
+/* Banner */
+.banner{border-bottom:1px solid #1f2326}
+.banner-inner{display:flex; align-items:center; gap:14px; padding:10px 0}
+.banner-logo{opacity:.9}
+.banner-rotator{display:flex; gap:18px; overflow:hidden}
+.rotator-item{color:var(--muted); text-decoration:none; transform:translateY(100%); transition:transform .5s ease, opacity .5s ease; opacity:0}
+.rotator-item.is-active{transform:translateY(0); opacity:1}
+
+/* Hero */
+.hero{padding:72px 0}
+.title{margin:0 0 8px; font-size:clamp(28px,3.6vw,44px); line-height:1.2}
+.subtitle{color:var(--muted); margin:10px 0 0}
+.tagline{font-weight:600; color:var(--sage)}
+.accent{color:var(--sage)}
+
+.hero-ctas{display:flex; gap:12px; margin-top:20px}
+.btn-primary,.btn-secondary{appearance:none; border-radius:10px; padding:10px 16px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:8px}
+.btn-primary{background:var(--sage); color:#111}
+.btn-secondary{background:#1E2124; color:var(--text)}
+.btn-primary:hover{filter:brightness(.95)}
+.btn-secondary:hover{filter:brightness(1.1)}
+
+/* Cards */
+.card{background:#141618; border:1px solid #222629; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+.card.soft{background:#131517}
+
+/* Type helpers */
+.muted{color:var(--muted)}
+.tight{margin:0; padding-left:18px}
+
+/* Forms */
+.contact-form .field{display:flex; flex-direction:column; gap:6px}
+.contact-form input,.contact-form textarea{
+  background:#0F1113; color:var(--text); border:1px solid #24282C; border-radius:10px; padding:10px 12px
+}
+.contact-form .actions{margin-top:10px}
+
+/* Footer */
+.site-footer{border-top:1px solid #1f2326; padding:22px 0; margin-top:40px; color:var(--muted)}
+
+/* Animations: fade-in once on intersect */
+.fade-in{opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease}
+.fade-in.is-visible{opacity:1; transform:translateY(0)}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .rotator-item,.fade-in{transition:none}
+}
