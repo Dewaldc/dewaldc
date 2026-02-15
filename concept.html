@@ -1,74 +1,37 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>kuholi lounge — concept</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="concept, mission, vision, unique value proposition, growth strategy, marketing approach, financial outlook — kuholi lounge." />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <!-- header -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="index.html" class="brand">
-        <img src="Kuholi.png" alt="KuHoLi logo" class="logo-img" />
-        <span class="brand-name">kuholi lounge</span>
-      </a>
+/* ========= KuHoLi Lounge — Earthy Organic Minimal ========= */
+:root{
+  /* Brand palette */
+  --sage: #9CAF88; /* primary accent */
+  --beige: #F5E9D7; /* page background */
+  --charcoal:#333333; /* text / icons */
+  --ink: #1C1C1C; /* deeper text */
+  --copper: #B87333; /* accent buttons, rules */
+  --stone: #F7F1E8; /* soft neutral section */
+  --line: rgba(0,0,0,0.12);
+  /* Layout */
+  --radius: 14px;
+  --maxw: 1100px;
+  --shadow: 0 10px 26px rgba(0,0,0,0.10);
+}
+*{ box-sizing: border-box; }
+html, body{
+  margin:0; padding:0;
+  background: var(--beige);
+  color: var(--charcoal);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img{ max-width:100%; display:block; }
+a{ color: inherit; text-decoration: none; }
+.container{ width:min(90%, var(--maxw)); margin:0 auto; }
 
-      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-
-      <nav id="primary-nav" class="nav-links" aria-label="Primary">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="concept.html">Concept</a>
-        <a class="nav-link" href="lounge.html">Lounge</a>
-        <a class="nav-link" href="brand.html">Brand</a>
-        <a class="nav-link" href="strategy.html">Strategy</a>
-        <a class="nav-link" href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="section">
-      <div class="container">
-        <h1 class="title">concept</h1>
-        <p class="subtitle">
-          KuHoLi Lounge is a modern, luxurious, and earthy wellness lounge blending a bistro coffee experience with holistic healing and premium lifestyle offerings. Designed for young professionals seeking balance, KuHoLi offers artisanal coffee, curated whiskey selections, holistic therapies, and unique retail products (including compliant cannabis‑infused edibles) in a sophisticated, Instagram‑worthy setting.
-        </p>
-      </div>
-    </section>
-
-    <section class="section section-neutral">
-      <div class="container grid-3">
-        <div class="card soft">
-          <h3>mission</h3>
-          <p>To create a sanctuary where wellness meets indulgence, fostering community and mindful living through exceptional experiences.</p>
-        </div>
-        <div class="card soft">
-          <h3>vision</h3>
-          <p>To become a leading lifestyle brand that redefines social spaces by integrating wellness, luxury, and sustainability.</p>
-        </div>
-        <div class="card soft">
-          <h3>unique value proposition</h3>
-          <p>Unlike conventional coffee shops or spas, KuHoLi unites coffee culture, holistic healing, and premium spirits under one roof — an immersive experience tailored for modern professionals.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>growth strategy</h2>
-        <div class="grid-3">
-          <div class="card">
-            <h3>phase 1</h3>
-            <p>Launch flagship venue with influencer-driven marketing and experiential pop-ups.</p>
-          </div>
-          <div class="card">
-            <h3>phase 2</h3>
-            <p>Build community through themed food nights, loyalty programs, and collaborations with local chefs and artists.</p>
-          </div>
-          <div class="card">
+/* ===== Header / Nav ===== */
+.site-header{
+  position: sticky; top: 0; z-index: 1000;
+  background: rgba(245, 233, 215, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-container{
+  display:flex; align-items:center; justify-content:space
